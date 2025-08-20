@@ -42,12 +42,12 @@
             
             i18n: {
                 // 'en' dil ayarları içinde bulunan tüm metinleri kaldırdım
-                en: {
-                    title: 'MERHABA',
-                    subtitle: 'MRTHABA',
-                    footer: 'MERHABA',
-                    getStarted: 'MERHABA',
-                    inputPlaceholder: 'MERHABA',
+                tr: {
+                    title: "",
+                    subtitle: "",
+                    footer: "",
+                    getStarted: "",
+                    inputPlaceholder: "",
                 },
             },
             

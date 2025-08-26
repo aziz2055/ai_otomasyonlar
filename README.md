@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -194,5 +193,4 @@
         });
     </script>
 </body>
-</html>
-<img width="925" height="3642" alt="image" src="https://github.com/user-attachments/assets/cb49f30a-c8ae-441b-89bd-a60daf11e5a9" />
+</html><img width="925" height="3596" alt="image" src="https://github.com/user-attachments/assets/3ba2dd19-b8c0-4fe3-95fd-834e65d6bf41" />

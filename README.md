@@ -1,58 +1,198 @@
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>n8n Chat Widget</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+    <title>Chat Widget</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/geist-font/1.0.0/fonts/geist-sans/style.min.css">
+    <style>
+        body {
+            font-family: 'Geist Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            height: 100vh;
+            overflow: hidden;
+        }
+        /* Chat Widget Styling */
+        #chat-widget-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+            overflow: hidden;
+        }
+        #chat-widget-header {
+            background: #854fff;
+            color: white;
+            padding: 20px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+        }
+        /* Avatar için yeni stil */
+        #chat-widget-header .avatar {
+            width: 40px; /* Avatar genişliği */
+            height: 40px; /* Avatar yüksekliği */
+            border-radius: 50%; /* Yuvarlak yapmak için */
+            margin-right: 10px; /* Metinle arasında boşluk */
+            object-fit: cover; /* Resmin orantısını korurken kutuyu doldurur */
+        }
+        #chat-widget-header .header-content {
+            display: flex;
+            align-items: center;
+        }
+        #chat-widget-body {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        /* Increased spacing between messages */
+        #chat-widget-body p {
+            margin-bottom: 15px; /* Adjust spacing between messages */
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            word-wrap: break-word;
+        }
+        #chat-widget-footer {
+            padding: 12px;
+            border-top: 1px solid #ddd;
+            display: flex;
+            gap: 10px;
+        }
+        #chat-widget-input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+        }
+        #chat-widget-send {
+            background: #854fff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        /* Make the chat bubble a perfect circle */
+        #chat-widget-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #854fff;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 <body>
-
-    <div id="n8n-chat"></div>
-
-    <script type="module">
-        // n8n chat widget kütüphanesini CDN üzerinden içe aktarıyoruz
-        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
-
-        // createChat fonksiyonunu, yapılandırma objesi ile birlikte çağırıyoruz
-        createChat({
-            // ÖNEMLİ: Bu URL'ye kendi n8n webhook URL'nizi girmeniz gerekmektedir.
-            webhookUrl: 'https://n8n.n8naziz.com/webhook/ec6ff37a-76be-415e-880b-da4df99fc075/chat',
-            
-            webhookConfig: {
-                method: 'POST',
-                headers: {},
+    <button id="chat-widget-button">💬</button>
+    <div id="chat-widget-container">
+        <div id="chat-widget-header">
+            <div class="header-content">
+                <img src="cheerful-curly-business-girl-wearing-glasses_10858634.jpg!f305cw" alt="Kız Avatarı" class="avatar"> <span>Selen Aktaş</span>
+            </div>
+            <button onclick="closeChatWidget()">✖</button>
+        </div>
+        <div id="chat-widget-body">
+            <p style="margin-bottom: 20px;"><strong>Merhaba 👋, Nasıl yardım edebilirim?</strong></p>
+        </div>
+        <div id="chat-widget-footer">
+            <input type="text" id="chat-widget-input" placeholder="Mesajınızı buraya yazın...">
+            <button id="chat-widget-send">Gönder</button>
+        </div>
+    </div>
+    <script>
+        window.ChatWidgetConfig = {
+            webhook: {
+                url: 'YOUR-URL-HERE',
+                route: 'general'
             },
-            
-            // 'window' modunda olduğu için chatbot sayfanın sağ alt köşesinde açılır.
-            target: '#n8n-chat',
-            mode: 'window', 
-            
-            chatInputKey: 'chatInput',
-            chatSessionKey: 'sessionId',
-            loadPreviousSession: true,
-            metadata: {},
-            showWelcomeScreen: false,
-            defaultLanguage: 'tr',
-            initialMessages: [
-                'Merhaba! 👋',
-                ' Bugün size nasıl yardımcı olabilirim?',
-            ],
-            
-            i18n: {
-                // 'en' dil ayarları içinde bulunan tüm metinleri kaldırdım
-                tr: {
-                    title: "",
-                    subtitle: "",
-                    footer: "",
-                    getStarted: "",
-                    inputPlaceholder: "",
-                },
-            },
-            
-            enableStreaming: false,
+            style: {
+                primaryColor: '#854fff',
+                secondaryColor: '#6b3fd4',
+                position: 'right',
+                backgroundColor: '#ffffff',
+                fontColor: '#333333'
+            }
+        };
+        // Function to generate or retrieve a unique chat ID
+        function getChatId() {
+            let chatId = sessionStorage.getItem("chatId");
+            if (!chatId) {
+                chatId = "chat_" + Math.random().toString(36).substr(2, 9); // Unique ID
+                sessionStorage.setItem("chatId", chatId);
+            }
+            return chatId;
+        }
+        // Show chat widget and hide bubble
+        document.getElementById("chat-widget-button").addEventListener("click", function() {
+            document.getElementById("chat-widget-container").style.display = "flex";
+            document.getElementById("chat-widget-button").style.display = "none";
+        });
+        // Close chat widget and show bubble
+        function closeChatWidget() {
+            document.getElementById("chat-widget-container").style.display = "none";
+            document.getElementById("chat-widget-button").style.display = "flex";
+        }
+        // Send message to n8n webhook
+        document.getElementById("chat-widget-send").addEventListener("click", function() {
+            let message = document.getElementById("chat-widget-input").value;
+            if (message.trim() === "") return;
+            let chatBody = document.getElementById("chat-widget-body");
+            let newMessage = document.createElement("p");
+            newMessage.textContent = message;
+            newMessage.style.color = "#333";
+            newMessage.style.background = "#f1f1f1";
+            chatBody.appendChild(newMessage);
+            let chatId = getChatId(); // Retrieve the session chat ID
+            fetch(window.ChatWidgetConfig.webhook.url, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    chatId: chatId,  // Attach chat ID for memory tracking
+                    message: message,
+                    route: window.ChatWidgetConfig.webhook.route
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                let botMessage = document.createElement("p");
+                botMessage.innerHTML = data.output || "Üzgünüm, bunu anlayamadım";
+                botMessage.style.color = "#fff";
+                botMessage.style.background = "#854fff";
+                botMessage.style.marginTop = "10px";
+                chatBody.appendChild(botMessage);
+            })
+            .catch(error => console.error("Error:", error));
+            document.getElementById("chat-widget-input").value = "";
         });
     </script>
 </body>
 </html>
+<img width="925" height="3642" alt="image" src="https://github.com/user-attachments/assets/cb49f30a-c8ae-441b-89bd-a60daf11e5a9" />

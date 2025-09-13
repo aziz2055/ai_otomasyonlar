@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yapay Zeka Çözümleri </title>
+    <title>Yapay Zeka Çözümleri</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -327,6 +327,111 @@
             letter-spacing: 1px;
         }
         
+        /* SSS Modal */
+        #faqModal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            overflow-y: auto;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        #faqModal.active {
+            opacity: 1;
+        }
+        
+        .faq-modal-content {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            max-width: 800px;
+            margin: 5% auto;
+        }
+        
+        .faq-modal-content h1 {
+            text-align: center;
+            color: #6e8efb;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: linear-gradient(to right, #6e8efb, #a777e3);
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 22px;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.active::after {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background-color: #f8f9fa;
+            border-radius: 0 0 10px 10px;
+        }
+        
+        .faq-answer.show {
+            max-height: 500px;
+            padding: 20px;
+        }
+        
+        .faq-answer p {
+            margin-bottom: 15px;
+        }
+        
+        .close-faq {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+            background: rgba(0,0,0,0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+        
+        .close-faq:hover {
+            background: rgba(0,0,0,0.8);
+        }
+        
         /* Fullscreen modal stilleri */
         .fullscreen-modal {
             display: none;
@@ -618,6 +723,14 @@
                 right: 15px;
             }
             
+            .close-faq {
+                font-size: 30px;
+                width: 40px;
+                height: 40px;
+                top: 10px;
+                right: 15px;
+            }
+            
             .image-counter {
                 top: 10px;
                 left: 15px;
@@ -639,6 +752,24 @@
             
             .cta-text {
                 font-size: 1.1rem;
+            }
+            
+            .faq-modal-content {
+                margin: 10% 5%;
+                padding: 15px;
+            }
+            
+            .faq-modal-content h1 {
+                font-size: 24px;
+            }
+            
+            .faq-question {
+                font-size: 16px;
+                padding: 12px;
+            }
+            
+            .faq-answer.show {
+                padding: 15px;
             }
         }
     </style>
@@ -674,46 +805,35 @@
                 </div>
             </div>
 
-             <div class="service-card" onclick="openFullscreenModal(2)">
+            <div class="service-card" onclick="openFullscreenModal(2)">
                 <div class="thumbnail-container">
                     <img src="fotoğraflar/hisse-başlık.png" alt="hisse takip otomasyonu" class="thumbnail">
                 </div>
                 <div class="service-info">
-                    <h3><i class="fas fa-robot"></i> hisse takip otomasyonu</h3>
+                    <h3><i class="fas fa-robot"></i> Hisse Takip Otomasyonu</h3>
                     <p>Geliştirdiğimiz özel hisse takip otomasyonu.</p>
                     <a class="read-more">Detayları Görüntüle</a>
                 </div>
             </div>
 
-             <div class="service-card" onclick="openFullscreenModal(3)">
+            <div class="service-card" onclick="openFullscreenModal(3)">
                 <div class="thumbnail-container">
                     <img src="fotoğraflar/chatbot-başlık.png" alt="Yapay zeka entegreli Web Site Chatbot" class="thumbnail">
                 </div>
                 <div class="service-info">
-                    <h3><i class="fas fa-robot"></i> Yapay zeka entegreli Web Site Chatbot</h3>
+                    <h3><i class="fas fa-robot"></i> Yapay Zeka Entegreli Web Site Chatbot</h3>
                     <p>Websitelere özel geliştirdiğimiz yapay zeka chatbot.</p>
                     <a class="read-more">Detayları Görüntüle</a>
                 </div>
             </div>
 
-             <div class="service-card" onclick="openFullscreenModal(4)">
+            <div class="service-card" onclick="openFullscreenModal(4)">
                 <div class="thumbnail-container">
                     <img src="WhatsApp Görsel 2025-09-11 saat 16.08.19_efbdb551.jpg" alt="Görüntü'den Fatura İşleme otomasyonu" class="thumbnail">
                 </div>
                 <div class="service-info">
-                    <h3><i class="fas fa-robot"></i> Görüntü'den Fatura İşleme otomasyonu</h3>
-                    <p>Geliştirmiş olduğumuz otomayon bütün faturaları google sheets işler.</p>
-                    <a class="read-more">Detayları Görüntüle</a>
-                </div>
-            </div>
-            
-            <div class="service-card" onclick="openFullscreenModal(5)">
-                <div class="thumbnail-container">
-                    <img src="" alt="Yapay Zeka" class="thumbnail">
-                </div>
-                <div class="service-info">
-                    <h3><i class="fas fa-robot"></i> </h3>
-                    <p></p>
+                    <h3><i class="fas fa-robot"></i> Görüntü'den Fatura İşleme Otomasyonu</h3>
+                    <p>Geliştirmiş olduğumuz otomasyon bütün faturaları Google Sheets'e işler.</p>
                     <a class="read-more">Detayları Görüntüle</a>
                 </div>
             </div>
@@ -723,6 +843,7 @@
         <section class="token-calculator">
             <div class="calculator-container">
                 <div class="calculator-image">
+                    <!-- Eğer bir görüntü eklemek isterseniz buraya src ekleyin, yoksa boş bırakın -->
                 </div>
                 
                 <div class="calculator-content">
@@ -735,7 +856,7 @@
                     
                     <div class="input-section">
                         <h3><i class="fas fa-calculator"></i> Token Hesaplayıcı</h3>
-                        <textarea id="textInput" placeholder="Metninizi buraya yazın... Örnek: 'merhaba' 4 token olarak hesaplanır" oninput="calculateTokens()"></textarea>
+                        <textarea id="textInput" placeholder="Metninizi buraya yazın... Örnek: 'merhaba' 4 token olarak hesaplanır"></textarea>
                         
                         <div class="stats">
                             <div class="stat-box">
@@ -751,6 +872,8 @@
                                 <div class="stat-label">Token</div>
                             </div>
                         </div>
+                        <button onclick="calculateTokens()" style="margin-top: 15px; background: linear-gradient(to right, #6e8efb, #a777e3); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Yeniden Hesapla</button>
+                        <button onclick="openFaqModal()" style="margin-top: 10px; background: linear-gradient(to right, #ff8c00, #ff0080); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Sıkça Sorulan Sorular</button>
                     </div>
                 </div>
             </div>
@@ -761,7 +884,7 @@
                 <h2 class="cta-title">Yapay Zekanın Etkisi!</h2>
                 <p class="cta-text">
                     Müşterilerinize anında yanıt verin, onları etkileyin ve satışları artırın. Yapay zeka destekli chatbot'larımızla müşteri memnuniyetini maksimuma çıkarın. 
-                   </p> <span class="highlight">Sizi bir adım öne taşıyacak çözümlerimizle tanışın.</span></p>
+                    <span class="highlight">Sizi bir adım öne taşıyacak çözümlerimizle tanışın.</span>
                 </p>
                 <p class="cta-text">
                     WhatsApp, Telegram ve web siteniz için özelleştirilmiş yapay zeka asistanları. Doğal dil işleme teknolojisiyle müşterilerinizle insan gibi konuşan, 
@@ -779,7 +902,7 @@
                 <a href="#"><i class="fas fa-phone"></i></a>
             </div>
             <p>&copy; 7/24 Yapay Zeka Destekli İletişim Çözümleri</p>
-            <p>Bizimle whatsap'tan iletişime geçin : +90 553 263 2770</p>
+            <p>Bizimle WhatsApp'tan iletişime geçin: +90 553 263 2770</p>
         </footer>
     </div>
     
@@ -804,12 +927,60 @@
         </div>
     </div>
 
+    <!-- SSS Modal -->
+    <div id="faqModal" class="fullscreen-modal">
+        <div class="faq-modal-content">
+            <h1>Sıkça Sorulan Sorular</h1>
+            
+            <div class="faq-item">
+                <div class="faq-question">Token nedir ve nasıl hesaplanır?</div>
+                <div class="faq-answer">
+                    <p>Token, doğal dil işleme modellerinin metni işlemek için kullandığı temel birimdir. Kelimeler, alt kelime parçaları veya tek karakterlerden oluşabilir.</p>
+                    <p>Örneğin, "merhaba" kelimesi 4 token'a bölünebilir: "mer", "ha", "b", "a". Uygulamamızda bu kelime özel olarak 4 token olarak hesaplanmaktadır.</p>
+                    <p>Diğer kelimeler için genellikle kelime uzunluğunun %60'ı kadar token üretilir, bu nedenle daha uzun kelimeler daha fazla token'a sahip olur.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Neden "merhaba" kelimesi 4 token olarak hesaplanıyor?</div>
+                <div class="faq-answer">
+                    <p>"merhaba" kelimesi, dil modellerinde sıklıkla 4 parçaya bölünen bir kelime olduğu için örnek olarak bu şekilde hesaplanmaktadır.</p>
+                    <p>Bu, gerçek dil modellerinin çalışma şeklini simüle etmek için yapılmıştır. Gerçek token sayıları kullanılan modele göre değişiklik gösterebilir.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Noktalama işaretleri token olarak sayılıyor mu?</div>
+                <div class="faq-answer">
+                    <p>Evet, noktalama işaretleri genellikle ayrı token'lar olarak sayılır. Uygulamamızda da nokta, virgül, soru işareti, ünlem işareti ve benzeri noktalama işaretleri token sayısına eklenmektedir.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Token sayısı neden önemlidir?</div>
+                <div class="faq-answer">
+                    <p>Token sayısı, dil modellerinin işleyebileceği metin uzunluğunu belirler. Modellerin genellikle maksimum token sınırı vardır.</p>
+                    <p>Ayrıca, birçok API hizmeti kullanım başına token sayısına göre fiyatlandırma yapar, bu nedenle token sayısını bilmek maliyet tahmini yapmanıza yardımcı olur.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Hesaplamamın doğruluğundan nasıl emin olabilirim?</div>
+                <div class="faq-answer">
+                    <p>Uygulamamız genel bir tahmin sunar, ancak farklı dil modelleri token'ları farklı şekillerde hesaplayabilir.</p>
+                    <p>Kesin token sayısını öğrenmek için kullandığınız modelin tokenizer'ını doğrudan kullanmanızı öneririz. OpenAI gibi birçok sağlayıcı, kendi tokenizer araçlarını sunmaktadır.</p>
+                </div>
+            </div>
+        </div>
+        <span class="close-faq" onclick="closeFaqModal()">&times;</span>
+    </div>
+
     <script>
         // Hizmet verileri
         const services = [
             {
                 name: "WhatsApp 7/24 Asistan Otomasyonu",
-                description: "WhatsApp üzerinden gelen müşteri sorularını 7/24 anında yanıtlayan ve randevu oluşturan,güncelleyen ve silen bir emlak otomasyon oluşturduk.",
+                description: "WhatsApp üzerinden gelen müşteri sorularını 7/24 anında yanıtlayan ve randevu oluşturan, güncelleyen ve silen bir emlak otomasyon oluşturduk.",
                 images: [
                     {
                         url: "fotoğraflar/wp-1.jpg",
@@ -818,7 +989,6 @@
                     {
                         url: "fotoğraflar/wp-2.jpg",
                         description: "Emlak sektörüne özel geliştirdiğimiz modüller sayesinde randevu yönetimi, müşteri takibi ve satış süreçlerini otomatikleştirebilirsiniz."
-    
                     },
                     {
                         url: "fotoğraflar/wp-3.jpg",
@@ -836,25 +1006,25 @@
                         url: "fotoğraflar/wp-6.jpg",
                         description: "Vermiş olduğunuz bilgiler doğrultusunda müşteriye bilgiler iletilir."
                     },
-                     {
+                    {
                         url: "fotoğraflar/wp-7.jpg",
-                        description: "Eğer o tarih&saat ranndevu doluysa başka tarih&saat ister."
+                        description: "Eğer o tarih&saat randevu doluysa başka tarih&saat ister."
                     },
-                     {
+                    {
                         url: "fotoğraflar/wp-8.jpg",
                         description: "Müşterinin soracağı soruları düşünerek cevap verir."
                     },
-                     {
+                    {
                         url: "fotoğraflar/wp-9.jpg",
                         description: "Randevu no ile birlikte randevular iptal edilebilir."
                     },
-                      {
+                    {
                         url: "fotoğraflar/wp-10.jpg",
-                        description: "alınan veiler google sheets işlenir."
+                        description: "Alınan veriler Google Sheets'e işlenir."
                     },
                     {
                         url: "fotoğraflar/wp-11.jpg",
-                        description: "alınan randevular google calendar'a işlenir."
+                        description: "Alınan randevular Google Calendar'a işlenir."
                     }
                 ]
             },
@@ -877,7 +1047,7 @@
                 ]
             },
             {
-                name: "hisse takip otomasyonu",
+                name: "Hisse Takip Otomasyonu",
                 description: "",
                 images: [
                     {
@@ -888,7 +1058,7 @@
                         url: "fotoğraflar/hisse-2.jpg",
                         description: ""
                     },
-                      {
+                    {
                         url: "fotoğraflar/hisse-3.jpg",
                         description: ""
                     },
@@ -899,21 +1069,21 @@
                 ]
             },
             {
-                name: "Yapay zeka entegreli Web Site Chatbot",
+                name: "Yapay Zeka Entegreli Web Site Chatbot",
                 description: "",
                 images: [
                     {
                         url: "fotoğraflar/chatbot-1.jpg",
                         description: ""
                     },
-         {
+                    {
                         url: "fotoğraflar/chatbot-2.jpg",
                         description: ""
                     }
                 ]
             },
             {
-                name: "Görüntü'den Fatura İşleme otomasyonu",
+                name: "Görüntü'den Fatura İşleme Otomasyonu",
                 description: "",
                 images: [
                     {
@@ -922,28 +1092,6 @@
                     },
                     {
                         url: "WhatsApp Görsel 2025-09-13 saat 13.18.23_f707fe11.jpg",
-                        description: ""
-                    }
-                ]
-            },
-            {
-                name: "",
-                description: ".",
-                images: [
-                    {
-                        url: "",
-                        description: ""
-                    },
-                    {
-                        url: "",
-                        description: ""
-                    },
-                    {
-                        url: "",
-                        description: ""
-                    },
-                    {
-                        url: "",
                         description: ""
                     }
                 ]
@@ -1075,175 +1223,6 @@
             }
         }
         
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Token Hesaplayıcı</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        
-        .container {
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            width: 100%;
-            max-width: 800px;
-            padding: 30px;
-            margin: 20px;
-        }
-        
-        h1 {
-            color: #333;
-            text-align: center;
-            margin-bottom: 25px;
-            font-size: 28px;
-        }
-        
-        .input-container {
-            margin-bottom: 25px;
-        }
-        
-        textarea {
-            width: 100%;
-            height: 200px;
-            padding: 15px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            resize: vertical;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-        
-        textarea:focus {
-            border-color: #6e8efb;
-            outline: none;
-        }
-        
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-        
-        .stat-box {
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-        
-        .stat-title {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 8px;
-        }
-        
-        .stat-value {
-            color: #333;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        
-        button {
-            background: linear-gradient(to right, #6e8efb, #a777e3);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 15px 25px;
-            font-size: 16px;
-            cursor: pointer;
-            width: 100%;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-        
-        button:active {
-            transform: translateY(0);
-        }
-        
-        .info {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #f0f4ff;
-            border-radius: 8px;
-            font-size: 14px;
-            color: #555;
-        }
-        
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
-            
-            h1 {
-                font-size: 24px;
-            }
-            
-            .stats {
-                grid-template-columns: 1fr;
-            }
-            
-            textarea {
-                height: 150px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Token Hesaplayıcı</h1>
-        
-        <div class="input-container">
-            <textarea id="textInput" placeholder="Metninizi buraya yazın..." oninput="calculateTokens()"></textarea>
-        </div>
-        
-        <div class="stats">
-            <div class="stat-box">
-                <div class="stat-title">Karakter Sayısı</div>
-                <div id="charCount" class="stat-value">0</div>
-            </div>
-            
-            <div class="stat-box">
-                <div class="stat-title">Kelime Sayısı</div>
-                <div id="wordCount" class="stat-value">0</div>
-            </div>
-            
-            <div class="stat-box">
-                <div class="stat-title">Token Sayısı</div>
-                <div id="tokenCount" class="stat-value">0</div>
-            </div>
-        </div>
-        
-        <button onclick="calculateTokens()">Yeniden Hesapla</button>
-        
-        <div class="info">
-            <p><strong>Not:</strong> "merhaba" kelimesi 4 token olarak hesaplanmaktadır. Diğer kelimeler için yaklaşık bir token değeri kullanılmaktadır.</p>
-        </div>
-    </div>
-
-    <script>
         // Token hesaplama fonksiyonu
         function calculateTokens() {
             const text = document.getElementById('textInput').value;
@@ -1280,205 +1259,73 @@
             document.getElementById('tokenCount').textContent = estimatedTokens.toLocaleString();
         }
         
+        // Textarea input event listener
+        document.getElementById('textInput').addEventListener('input', calculateTokens);
+        
         // Sayfa yüklendiğinde örnek metin ekle
         window.onload = function() {
             const sampleText = "merhaba nasılsın";
             document.getElementById('textInput').value = sampleText;
             calculateTokens();
-        };
-        <!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSS - Token Hesaplayıcı</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f7fa;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            padding: 25px;
-        }
-        
-        h1 {
-            text-align: center;
-            color: #6e8efb;
-            margin-bottom: 30px;
-            font-size: 28px;
-        }
-        
-        .faq-item {
-            margin-bottom: 20px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
-        }
-        
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-            background: linear-gradient(to right, #6e8efb, #a777e3);
-            color: white;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 18px;
-        }
-        
-        .faq-question::after {
-            content: '+';
-            font-size: 22px;
-            transition: transform 0.3s ease;
-        }
-        
-        .faq-question.active::after {
-            transform: rotate(45deg);
-        }
-        
-        .faq-answer {
-            padding: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            background-color: #f8f9fa;
-            border-radius: 0 0 10px 10px;
-        }
-        
-        .faq-answer.show {
-            max-height: 500px;
-            padding: 20px;
-        }
-        
-        .faq-answer p {
-            margin-bottom: 15px;
-        }
-        
-        .back-button {
-            display: block;
-            width: 100%;
-            text-align: center;
-            background: linear-gradient(to right, #6e8efb, #a777e3);
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 20px;
-        }
-        
-        @media (max-width: 600px) {
-            .container {
-                padding: 15px;
-            }
             
-            h1 {
-                font-size: 24px;
-            }
-            
-            .faq-question {
-                font-size: 16px;
-                padding: 12px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Sıkça Sorulan Sorular</h1>
-        
-        <div class="faq-item">
-            <div class="faq-question">Token nedir ve nasıl hesaplanır?</div>
-            <div class="faq-answer">
-                <p>Token, doğal dil işleme modellerinin metni işlemek için kullandığı temel birimdir. Kelimeler, alt kelime parçaları veya tek karakterlerden oluşabilir.</p>
-                <p>Örneğin, "merhaba" kelimesi 4 token'a bölünebilir: "mer", "ha", "b", "a". Uygulamamızda bu kelime özel olarak 4 token olarak hesaplanmaktadır.</p>
-                <p>Diğer kelimeler için genellikle kelime uzunluğunun %60'ı kadar token üretilir, bu nedenle daha uzun kelimeler daha fazla token'a sahip olur.</p>
-            </div>
-        </div>
-        
-        <div class="faq-item">
-            <div class="faq-question">Neden "merhaba" kelimesi 4 token olarak hesaplanıyor?</div>
-            <div class="faq-answer">
-                <p>"merhaba" kelimesi, dil modellerinde sıklıkla 4 parçaya bölünen bir kelime olduğu için örnek olarak bu şekilde hesaplanmaktadır.</p>
-                <p>Bu, gerçek dil modellerinin çalışma şeklini simüle etmek için yapılmıştır. Gerçek token sayıları kullanılan modele göre değişiklik gösterebilir.</p>
-            </div>
-        </div>
-        
-        <div class="faq-item">
-            <div class="faq-question">Noktalama işaretleri token olarak sayılıyor mu?</div>
-            <div class="faq-answer">
-                <p>Evet, noktalama işaretleri genellikle ayrı token'lar olarak sayılır. Uygulamamızda da nokta, virgül, soru işareti, ünlem işareti ve benzeri noktalama işaretleri token sayısına eklenmektedir.</p>
-            </div>
-        </div>
-        
-        <div class="faq-item">
-            <div class="faq-question">Token sayısı neden önemlidir?</div>
-            <div class="faq-answer">
-                <p>Token sayısı, dil modellerinin işleyebileceği metin uzunluğunu belirler. Modellerin genellikle maksimum token sınırı vardır.</p>
-                <p>Ayrıca, birçok API hizmeti kullanım başına token sayısına göre fiyatlandırma yapar, bu nedenle token sayısını bilmek maliyet tahmini yapmanıza yardımcı olur.</p>
-            </div>
-        </div>
-        
-        <div class="faq-item">
-            <div class="faq-question">Hesaplamamın doğruluğundan nasıl emin olabilirim?</div>
-            <div class="faq-answer">
-                <p>Uygulamamız genel bir tahmin sunar, ancak farklı dil modelleri token'ları farklı şekillerde hesaplayabilir.</p>
-                <p>Kesin token sayısını öğrenmek için kullandığınız modelin tokenizer'ını doğrudan kullanmanızı öneririz. OpenAI gibi birçok sağlayıcı, kendi tokenizer araçlarını sunmaktadır.</p>
-            </div>
-        </div>
-        
-        <a href="#" class="back-button">Ana Sayfaya Dön</a>
-    </div>
-
-    <script>
-        // SSS açılıp kapanması için JavaScript
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const isActive = question.classList.contains('active');
-                
-                // Tüm açık cevapları kapat
-                document.querySelectorAll('.faq-question').forEach(q => {
-                    q.classList.remove('active');
+            // SSS accordion event listeners
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const isActive = question.classList.contains('active');
+                    
+                    // Tüm açık cevapları kapat
+                    document.querySelectorAll('.faq-question').forEach(q => {
+                        q.classList.remove('active');
+                    });
+                    document.querySelectorAll('.faq-answer').forEach(a => {
+                        a.classList.remove('show');
+                    });
+                    
+                    // Tıklananı aç
+                    if (!isActive) {
+                        question.classList.add('active');
+                        answer.classList.add('show');
+                    }
                 });
-                document.querySelectorAll('.faq-answer').forEach(a => {
-                    a.classList.remove('show');
-                });
-                
-                // Tıklananı aç
-                if (!isActive) {
-                    question.classList.add('active');
-                    answer.classList.add('show');
-                }
             });
+        };
+        
+        // SSS Modal açma
+        function openFaqModal() {
+            const faqModal = document.getElementById('faqModal');
+            faqModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            setTimeout(() => {
+                faqModal.classList.add('active');
+            }, 10);
+        }
+        
+        // SSS Modal kapatma
+        function closeFaqModal() {
+            const faqModal = document.getElementById('faqModal');
+            faqModal.classList.remove('active');
+            
+            setTimeout(() => {
+                faqModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+        
+        // SSS Modal dışına tıklama
+        document.getElementById('faqModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeFaqModal();
+            }
         });
         
-        // Sayfa yüklendiğinde ilk soruyu aç
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelector('.faq-question').click();
+        // Klavye ile SSS kapatma
+        document.addEventListener('keydown', function(event) {
+            if (document.getElementById('faqModal').style.display === 'block' && event.key === 'Escape') {
+                closeFaqModal();
+            }
         });
-    </script>
-</body>
-</html>
-    </script>
-</body>
-</html>
     </script>
 </body>
 </html>

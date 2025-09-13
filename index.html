@@ -1286,6 +1286,196 @@
             document.getElementById('textInput').value = sampleText;
             calculateTokens();
         };
+        <!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSS - Token Hesaplayıcı</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #6e8efb;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: linear-gradient(to right, #6e8efb, #a777e3);
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 22px;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.active::after {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background-color: #f8f9fa;
+            border-radius: 0 0 10px 10px;
+        }
+        
+        .faq-answer.show {
+            max-height: 500px;
+            padding: 20px;
+        }
+        
+        .faq-answer p {
+            margin-bottom: 15px;
+        }
+        
+        .back-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: linear-gradient(to right, #6e8efb, #a777e3);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .faq-question {
+                font-size: 16px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sıkça Sorulan Sorular</h1>
+        
+        <div class="faq-item">
+            <div class="faq-question">Token nedir ve nasıl hesaplanır?</div>
+            <div class="faq-answer">
+                <p>Token, doğal dil işleme modellerinin metni işlemek için kullandığı temel birimdir. Kelimeler, alt kelime parçaları veya tek karakterlerden oluşabilir.</p>
+                <p>Örneğin, "merhaba" kelimesi 4 token'a bölünebilir: "mer", "ha", "b", "a". Uygulamamızda bu kelime özel olarak 4 token olarak hesaplanmaktadır.</p>
+                <p>Diğer kelimeler için genellikle kelime uzunluğunun %60'ı kadar token üretilir, bu nedenle daha uzun kelimeler daha fazla token'a sahip olur.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Neden "merhaba" kelimesi 4 token olarak hesaplanıyor?</div>
+            <div class="faq-answer">
+                <p>"merhaba" kelimesi, dil modellerinde sıklıkla 4 parçaya bölünen bir kelime olduğu için örnek olarak bu şekilde hesaplanmaktadır.</p>
+                <p>Bu, gerçek dil modellerinin çalışma şeklini simüle etmek için yapılmıştır. Gerçek token sayıları kullanılan modele göre değişiklik gösterebilir.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Noktalama işaretleri token olarak sayılıyor mu?</div>
+            <div class="faq-answer">
+                <p>Evet, noktalama işaretleri genellikle ayrı token'lar olarak sayılır. Uygulamamızda da nokta, virgül, soru işareti, ünlem işareti ve benzeri noktalama işaretleri token sayısına eklenmektedir.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Token sayısı neden önemlidir?</div>
+            <div class="faq-answer">
+                <p>Token sayısı, dil modellerinin işleyebileceği metin uzunluğunu belirler. Modellerin genellikle maksimum token sınırı vardır.</p>
+                <p>Ayrıca, birçok API hizmeti kullanım başına token sayısına göre fiyatlandırma yapar, bu nedenle token sayısını bilmek maliyet tahmini yapmanıza yardımcı olur.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Hesaplamamın doğruluğundan nasıl emin olabilirim?</div>
+            <div class="faq-answer">
+                <p>Uygulamamız genel bir tahmin sunar, ancak farklı dil modelleri token'ları farklı şekillerde hesaplayabilir.</p>
+                <p>Kesin token sayısını öğrenmek için kullandığınız modelin tokenizer'ını doğrudan kullanmanızı öneririz. OpenAI gibi birçok sağlayıcı, kendi tokenizer araçlarını sunmaktadır.</p>
+            </div>
+        </div>
+        
+        <a href="#" class="back-button">Ana Sayfaya Dön</a>
+    </div>
+
+    <script>
+        // SSS açılıp kapanması için JavaScript
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+                
+                // Tüm açık cevapları kapat
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                });
+                document.querySelectorAll('.faq-answer').forEach(a => {
+                    a.classList.remove('show');
+                });
+                
+                // Tıklananı aç
+                if (!isActive) {
+                    question.classList.add('active');
+                    answer.classList.add('show');
+                }
+            });
+        });
+        
+        // Sayfa yüklendiğinde ilk soruyu aç
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.faq-question').click();
+        });
+    </script>
+</body>
+</html>
     </script>
 </body>
 </html>

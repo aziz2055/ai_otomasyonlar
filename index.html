@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Yapay Zeka Çözümleri - Geleceğinizi Şekillendirin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -14,13 +14,14 @@
         }
         
         body {
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            background: linear-gradient(135deg, #1e3a8a, #f97316, #fef08a);
             background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            animation: gradientBG 10s ease infinite;
             color: #333;
             line-height: 1.6;
             min-height: 100vh;
-            padding: 20px;
+            padding: 10px;
+            overflow-x: hidden;
         }
         
         @keyframes gradientBG {
@@ -31,18 +32,18 @@
         
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 600px;
             margin: 0 auto;
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         
         header {
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            padding: 40px 15px;
+            background: linear-gradient(to right, #1e3a8a, #3b82f6);
             color: white;
             position: relative;
             overflow: hidden;
@@ -60,23 +61,21 @@
         }
         
         h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 2rem;
+            margin-bottom: 15px;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            position: relative;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
             animation: fadeInDown 1s ease-out;
         }
         
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
+            from { opacity: 0; transform: translateY(-15px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
         .tagline {
-            font-size: 1.6rem;
-            margin-bottom: 25px;
-            position: relative;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
             animation: fadeIn 1.5s ease-out;
         }
         
@@ -87,91 +86,52 @@
         
         .ai-badge {
             display: inline-block;
-            background: linear-gradient(to right, #ff8c00, #ff0080);
-            padding: 10px 25px;
-            border-radius: 30px;
+            background: linear-gradient(to right, #f97316, #ef4444);
+            padding: 8px 20px;
+            border-radius: 25px;
             font-weight: bold;
-            margin-top: 20px;
+            margin-top: 15px;
+            font-size: 1rem;
             animation: pulse 2s infinite;
-            font-size: 1.2rem;
         }
         
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.03); }
             100% { transform: scale(1); }
-        }
-        
-        .hero-cta {
-            display: inline-block;
-            padding: 15px 35px;
-            background: linear-gradient(to right, #00c6ff, #0072ff);
-            color: white;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.3rem;
-            margin-top: 30px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            animation: bounceIn 1s ease-out;
-        }
-        
-        @keyframes bounceIn {
-            0% { opacity: 0; transform: scale(0.5); }
-            60% { opacity: 1; transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
-        
-        .hero-cta:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
         
         .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 20px;
         }
         
         .service-card {
             background: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
             position: relative;
-            z-index: 1;
             cursor: pointer;
             animation: fadeInUp 1s ease-out;
         }
         
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.03) 100%);
-            z-index: -1;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        .service-card:active {
+            transform: scale(0.98);
         }
         
         .thumbnail-container {
             position: relative;
             width: 100%;
-            height: 200px;
+            height: 150px;
             overflow: hidden;
         }
         
@@ -182,53 +142,55 @@
             transition: transform 0.3s ease;
         }
         
-        .service-card:hover .thumbnail {
-            transform: scale(1.05);
+        .service-card:active .thumbnail {
+            transform: scale(1.03);
         }
         
         .service-info {
-            padding: 25px;
+            padding: 15px;
         }
         
         .service-info h3 {
-            margin-bottom: 15px;
-            color: #2c3e50;
-            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #1e3a8a;
+            font-size: 1.2rem;
             display: flex;
             align-items: center;
         }
         
         .service-info h3 i {
-            margin-right: 10px;
-            color: #4ca1af;
-            font-size: 1.8rem;
+            margin-right: 8px;
+            color: #3b82f6;
+            font-size: 1.5rem;
         }
         
         .service-info p {
-            color: #7f8c8d;
-            margin-bottom: 20px;
-            line-height: 1.7;
+            color: #6b7280;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
         
         .read-more {
             display: inline-block;
-            padding: 10px 20px;
-            background: #3498db;
+            padding: 8px 15px;
+            background: #3b82f6;
             color: white;
             border-radius: 5px;
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.9rem;
             transition: background 0.3s ease;
         }
         
-        .read-more:hover {
-            background: #2980b9;
+        .read-more:active {
+            background: #2563eb;
         }
         
         /* Token Hesaplayıcı Bölümü */
         .token-calculator {
-            padding: 60px 40px;
-            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            padding: 40px 15px;
+            background: linear-gradient(to right, #1e3a8a, #3b82f6);
             color: white;
             position: relative;
             overflow: hidden;
@@ -246,31 +208,31 @@
         }
         
         .calculator-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            max-width: 1000px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 100%;
             margin: 0 auto;
-            position: relative;
         }
         
         .calculator-image {
             display: flex;
             justify-content: center;
             align-items: center;
+            order: -1;
         }
         
         .calculator-image img {
             width: 100%;
-            max-width: 300px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            max-width: 180px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
             animation: float 3s ease-in-out infinite;
         }
         
         @keyframes float {
             0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-8px); }
             100% { transform: translateY(0); }
         }
         
@@ -281,101 +243,101 @@
         }
         
         .calculator-content h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
             color: white;
         }
         
         .calculator-content p {
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-            line-height: 1.6;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
         }
         
         .free-token-badge {
             display: inline-block;
-            background: linear-gradient(to right, #ff8c00, #ff0080);
-            padding: 10px 25px;
-            border-radius: 30px;
+            background: linear-gradient(to right, #f97316, #ef4444);
+            padding: 8px 20px;
+            border-radius: 25px;
             font-weight: bold;
-            margin-bottom: 25px;
-            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-size: 1rem;
             animation: pulse 2s infinite;
             text-align: center;
         }
         
         .input-section {
             background: rgba(255, 255, 255, 0.1);
-            padding: 25px;
+            padding: 20px;
             border-radius: 10px;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .input-section h3 {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             color: white;
+            font-size: 1.2rem;
             display: flex;
             align-items: center;
         }
         
         .input-section h3 i {
-            margin-right: 10px;
-            color: #fdbb2d;
+            margin-right: 8px;
+            color: #fef08a;
         }
         
         textarea {
             width: 100%;
-            min-height: 120px;
-            padding: 15px;
+            min-height: 100px;
+            padding: 12px;
             border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
+            border-radius: 6px;
             resize: vertical;
             font-family: inherit;
-            font-size: 16px;
+            font-size: 0.9rem;
             line-height: 1.5;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             background: rgba(255, 255, 255, 0.9);
-            color: #2c3e50;
+            color: #1e3a8a;
         }
         
         textarea:focus {
             outline: none;
-            border-color: #3498db;
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.5);
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
         }
         
         .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
         
         .stat-box {
             background: rgba(255, 255, 255, 0.15);
-            padding: 20px;
-            border-radius: 10px;
+            padding: 15px;
+            border-radius: 8px;
             text-align: center;
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease;
         }
         
-        .stat-box:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.2);
+        .stat-box:active {
+            transform: scale(0.98);
         }
         
         .stat-value {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: black;
             margin-bottom: 5px;
         }
         
         .stat-label {
-            font-size: 0.9rem;
-            color: #ff8c00;
+            font-size: 0.8rem;
+            color: #f97316;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -389,7 +351,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.95);
+            background-color: rgba(0,0,0,0.9);
             overflow: hidden;
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -423,41 +385,41 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            padding: 60px;
+            padding: 20px;
             text-align: center;
         }
         
         .slide img {
             max-width: 100%;
-            max-height: 70%;
+            max-height: 60%;
             object-fit: contain;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
         
         .slide-description {
             color: white;
-            max-width: 800px;
-            font-size: 1.2rem;
-            line-height: 1.6;
+            max-width: 90%;
+            font-size: 0.9rem;
+            line-height: 1.5;
             background: rgba(0,0,0,0.5);
-            padding: 20px;
-            border-radius: 10px;
+            padding: 15px;
+            border-radius: 8px;
         }
         
         .close-modal {
             position: absolute;
-            top: 20px;
-            right: 30px;
+            top: 15px;
+            right: 15px;
             color: white;
-            font-size: 40px;
+            font-size: 30px;
             font-weight: bold;
             cursor: pointer;
             z-index: 1001;
             background: rgba(0,0,0,0.5);
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -465,7 +427,7 @@
             transition: background 0.3s ease;
         }
         
-        .close-modal:hover {
+        .close-modal:active {
             background: rgba(0,0,0,0.8);
         }
         
@@ -474,10 +436,10 @@
             top: 50%;
             transform: translateY(-50%);
             color: white;
-            font-size: 30px;
+            font-size: 25px;
             background: rgba(0,0,0,0.5);
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -487,34 +449,34 @@
             transition: background 0.3s ease;
         }
         
-        .nav-button:hover {
+        .nav-button:active {
             background: rgba(0,0,0,0.8);
         }
         
         .prev-button {
-            left: 20px;
+            left: 15px;
         }
         
         .next-button {
-            right: 20px;
+            right: 15px;
         }
         
         .image-counter {
             position: absolute;
-            top: 20px;
-            left: 20px;
+            top: 15px;
+            left: 15px;
             color: white;
-            font-size: 18px;
+            font-size: 14px;
             background: rgba(0,0,0,0.5);
-            padding: 5px 15px;
-            border-radius: 20px;
+            padding: 5px 12px;
+            border-radius: 15px;
             z-index: 1001;
         }
         
         .cta-section {
             text-align: center;
-            padding: 50px 20px;
-            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            padding: 40px 15px;
+            background: linear-gradient(to right, #1e3a8a, #3b82f6);
             color: white;
             position: relative;
             overflow: hidden;
@@ -532,41 +494,40 @@
         }
         
         .cta-content {
-            max-width: 800px;
+            max-width: 100%;
             margin: 0 auto;
-            position: relative;
         }
         
         .cta-title {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
         }
         
         .cta-text {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            line-height: 1.6;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
         }
         
         .highlight {
-            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-            padding: 3px 10px;
+            background: linear-gradient(120deg, #a3e635, #22d3ee);
+            padding: 3px 8px;
             border-radius: 5px;
-            color: #2c3e50;
+            color: #1e3a8a;
             font-weight: bold;
         }
         
         .contact-btn {
             display: inline-block;
-            padding: 16px 40px;
-            background: linear-gradient(to right, #ff8c00, #ff0080);
+            padding: 12px 30px;
+            background: linear-gradient(to right, #f97316, #ef4444);
             color: white;
-            border-radius: 50px;
+            border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             position: relative;
             overflow: hidden;
         }
@@ -583,125 +544,120 @@
             z-index: 1;
         }
         
-        .contact-btn:hover::before {
+        .contact-btn:active::before {
             left: 100%;
         }
         
-        .contact-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        .contact-btn:active {
+            transform: scale(0.98);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 40px 15px;
+            background: white;
+            color: #1e3a8a;
+            position: relative;
+        }
+        
+        .faq-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #1e3a8a;
+        }
+        
+        .faq-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            padding: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .faq-item:active {
+            transform: scale(0.98);
+        }
+        
+        .faq-question {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .faq-question i {
+            color: #3b82f6;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            font-size: 0.9rem;
+            color: #6b7280;
+            line-height: 1.5;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 150px;
+            padding: 10px 0;
         }
         
         footer {
             text-align: center;
-            padding: 30px;
-            background: #2c3e50;
+            padding: 20px;
+            background: #1e3a8a;
             color: white;
         }
         
         .social-links {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         .social-links a {
             display: inline-block;
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             background: rgba(255,255,255,0.1);
             border-radius: 50%;
-            margin: 0 10px;
+            margin: 0 8px;
             color: white;
-            font-size: 20px;
-            line-height: 45px;
+            font-size: 18px;
+            line-height: 40px;
             transition: all 0.3s ease;
         }
         
-        .social-links a:hover {
-            background: #4ca1af;
-            transform: translateY(-3px);
-        }
-        
-        /* Responsive tasarım */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .tagline {
-                font-size: 1.2rem;
-            }
-            
-            .services {
-                grid-template-columns: 1fr;
-                padding: 25px;
-            }
-            
-            .token-calculator {
-                padding: 40px 20px;
-            }
-            
-            .calculator-container {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .calculator-image {
-                order: -1;
-            }
-            
-            .calculator-image img {
-                max-width: 200px;
-            }
-            
-            .stats {
-                grid-template-columns: 1fr;
-            }
-            
-            .nav-button {
-                width: 40px;
-                height: 40px;
-                font-size: 20px;
-            }
-            
-            .close-modal {
-                font-size: 30px;
-                width: 40px;
-                height: 40px;
-                top: 10px;
-                right: 15px;
-            }
-            
-            .image-counter {
-                top: 10px;
-                left: 15px;
-                font-size: 14px;
-            }
-            
-            .slide {
-                padding: 30px 20px;
-            }
-            
-            .slide-description {
-                font-size: 1rem;
-                padding: 15px;
-            }
-            
-            .cta-title {
-                font-size: 1.8rem;
-            }
-            
-            .cta-text {
-                font-size: 1.1rem;
-            }
+        .social-links a:active {
+            background: #3b82f6;
+            transform: scale(0.95);
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>7/24 Yapay Zeka Destekli İletişim Çözümleri</h1>
-            <p class="tagline">WhatsApp, Telegram ve Web Siteleriniz İçin Akıllı Chatbot Sistemleri ile İşinizi Büyütün!</p>
-            <div class="ai-badge">%100 Yapay Zeka Tabanlı - Geleceğin Teknolojisi Bugün!</div>
+            <h1>7/24 Yapay Zeka Destekli Çözümler</h1>
+            <p class="tagline">WhatsApp, Telegram ve Web için Akıllı Chatbotlarla İşinizi Büyütün!</p>
+            <div class="ai-badge">%100 Yapay Zeka - Gelecek Bugün!</div>
         </header>
         
         <section class="services">
@@ -710,8 +666,8 @@
                     <img src="fotoğraflar/wp-başlık.jpg" alt="WhatsApp Yapay Zeka" class="thumbnail">
                 </div>
                 <div class="service-info">
-                    <h3><i class="fas fa-robot"></i> WhatsApp 7/24 Asistan Otomasyonu</h3>
-                    <p>WhatsApp üzerinden geliştirdiğimiz May emlak asistanı çalışmamız. Müşterilerinizle 7/24 etkileşimde kalın!</p>
+                    <h3><i class="fas fa-robot"></i> WhatsApp 7/24 Asistan</h3>
+                    <p>WhatsApp üzerinden May emlak asistanımızla 7/24 müşteri etkileşimi sağlayın!</p>
                     <a class="read-more">Detayları Görüntüle</a>
                 </div>
             </div>
@@ -722,40 +678,40 @@
                 </div>
                 <div class="service-info">
                     <h3><i class="fas fa-robot"></i> Stok Takip Otomasyonu</h3>
-                    <p>Geliştirdiğimiz özel stok takibi asistanı. Stoklarınızı akıllıca yönetin, kayıpları önleyin!</p>
+                    <p>Özel stok takibi asistanımızla stoklarınızı yönetin, kayıpları önleyin!</p>
                     <a class="read-more">Detayları Görüntüle</a>
                 </div>
             </div>
 
             <div class="service-card" onclick="openFullscreenModal(2)">
                 <div class="thumbnail-container">
-                    <img src="fotoğraflar/hisse-başlık.png" alt="hisse takip otomasyonu" class="thumbnail">
+                    <img src="fotoğraflar/hisse-başlık.png" alt="Hisse Takip Otomasyonu" class="thumbnail">
                 </div>
                 <div class="service-info">
                     <h3><i class="fas fa-robot"></i> Hisse Takip Otomasyonu</h3>
-                    <p>Geliştirdiğimiz özel hisse takip otomasyonu. Piyasaları anlık takip edin, fırsatları kaçırmayın!</p>
+                    <p>Piyasaları anlık takip edin, fırsatları kaçırmayın!</p>
                     <a class="read-more">Detayları Görüntüle</a>
                 </div>
             </div>
 
             <div class="service-card" onclick="openFullscreenModal(3)">
                 <div class="thumbnail-container">
-                    <img src="fotoğraflar/chatbot-başlık.png" alt="Yapay zeka entegreli Web Site Chatbot" class="thumbnail">
+                    <img src="fotoğraflar/chatbot-başlık.png" alt="Web Site Chatbot" class="thumbnail">
                 </div>
                 <div class="service-info">
-                    <h3><i class="fas fa-robot"></i> Yapay Zeka Entegreli Web Site Chatbot</h3>
-                    <p>Websitelere özel geliştirdiğimiz yapay zeka chatbot. Ziyaretçilerinizi müşteriye dönüştürün!</p>
+                    <h3><i class="fas fa-robot"></i> Web Site Chatbot</h3>
+                    <p>Ziyaretçilerinizi müşteriye dönüştüren yapay zeka chatbot!</p>
                     <a class="read-more">Detayları Görüntüle</a>
                 </div>
             </div>
 
             <div class="service-card" onclick="openFullscreenModal(4)">
                 <div class="thumbnail-container">
-                    <img src="WhatsApp Görsel 2025-09-11 saat 16.08.19_efbdb551.jpg" alt="Görüntü'den Fatura İşleme otomasyonu" class="thumbnail">
+                    <img src="WhatsApp Görsel 2025-09-11 saat 16.08.19_efbdb551.jpg" alt="Fatura İşleme Otomasyonu" class="thumbnail">
                 </div>
                 <div class="service-info">
-                    <h3><i class="fas fa-robot"></i> Görüntü'den Fatura İşleme Otomasyonu</h3>
-                    <p>Geliştirmiş olduğumuz otomasyon bütün faturaları Google Sheets'e işler. Muhasebenizi otomatikleştirin!</p>
+                    <h3><i class="fas fa-robot"></i> Fatura İşleme Otomasyonu</h3>
+                    <p>Faturaları Google Sheets'e işleyen otomasyonla muhasebenizi kolaylaştırın!</p>
                     <a class="read-more">Detayları Görüntüle</a>
                 </div>
             </div>
@@ -765,12 +721,12 @@
         <section class="token-calculator">
             <div class="calculator-container">
                 <div class="calculator-image">
-                    <!-- Eğer görüntü eklemek isterseniz buraya koyun -->
+                    <!-- Görüntü eklemek için yer -->
                 </div>
                 
                 <div class="calculator-content">
-                    <h2>Yapay Zeka Çağında Siz de Yerinizi Alın!</h2>
-                    <p>AI destekli çözümlerimizle işletmenizi geleceğe taşıyın. Müşteri etkileşimlerinizi otomatikleştirin, satışlarınızı artırın ve 7/24 kesintisiz hizmet sunun. Üstelik ilk 1.000.000 token ücretsiz!</p>
+                    <h2>Yapay Zeka ile Geleceğe Adım Atın!</h2>
+                    <p>AI çözümlerimizle işletmenizi güçlendirin. Müşteri etkileşimlerinizi otomatikleştirin ve 7/24 hizmet sunun. İlk 1.000.000 token ücretsiz!</p>
                     
                     <div class="free-token-badge">
                         <i class="fas fa-gift"></i> 1.000.000 TOKEN BEDAVA!
@@ -778,7 +734,7 @@
                     
                     <div class="input-section">
                         <h3><i class="fas fa-calculator"></i> Token Hesaplayıcı</h3>
-                        <textarea id="textInput" placeholder="Metninizi buraya yazın... Örnek: 'merhaba' 4 token olarak hesaplanır" oninput="calculateTokens()"></textarea>
+                        <textarea id="textInput" placeholder="Metninizi yazın... Örnek: 'merhaba' 4 token" oninput="calculateTokens()"></textarea>
                         
                         <div class="stats">
                             <div class="stat-box">
@@ -801,16 +757,38 @@
         
         <section class="cta-section">
             <div class="cta-content">
-                <h2 class="cta-title">Yapay Zekanın Gücünü Keşfedin!</h2>
+                <h2 class="cta-title">Yapay Zekanın Gücünü Hissedin!</h2>
                 <p class="cta-text">
-                    Müşterilerinize anında yanıt verin, onları etkileyin ve satışları artırın. Yapay zeka destekli chatbot'larımızla müşteri memnuniyetini maksimuma çıkarın. 
-                    <span class="highlight">Sizi bir adım öne taşıyacak çözümlerimizle tanışın.</span>
+                    Müşterilerinize anında yanıt verin, satışları artırın. 
+                    <span class="highlight">AI ile bir adım önde olun.</span>
                 </p>
                 <p class="cta-text">
-                    WhatsApp, Telegram ve web siteniz için özelleştirilmiş yapay zeka asistanları. Doğal dil işleme teknolojisiyle müşterilerinizle insan gibi konuşan, 
-                    soruları anlayan ve doğru yanıtlar veren akıllı sistemler. Ücretsiz demo için hemen iletişime geçin!
+                    WhatsApp, Telegram ve web için özelleştirilmiş AI asistanları. Doğal dil işleme ile insan gibi iletişim kurar. Ücretsiz demo için iletişime geçin!
                 </p>
-                <a href="https://wa.me/90552632770?text=yapay%20zeka%20otomasyon%20bilgi%20almak%20istiyorum" class="contact-btn">HEMEN TEKLİF ALIN - Ücretsiz Danışma!</a>
+                <a href="https://wa.me/90552632770?text=yapay%20zeka%20otomasyon%20bilgi%20almak%20istiyorum" class="contact-btn">HEMEN TEKLİF ALIN</a>
+            </div>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2>Sıkça Sorulan Sorular</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">Yapay zeka asistanları nasıl çalışır? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">Doğal dil işleme (NLP) ile sorularınızı anlar ve 7/24 yanıt verir. WhatsApp, Telegram veya webde çalışır.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Hangi platformlarla uyumlu? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">WhatsApp, Telegram, web siteleri ve Google Sheets/Calendar ile tam uyumlu.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Kurulum ne kadar sürer? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">İhtiyaçlarınıza bağlı olarak 1-3 iş günü içinde kurulum tamamlanır.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Ücretsiz tokenlar nasıl kullanılır? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">1.000.000 ücretsiz token ile hizmetlerimizi test edebilirsiniz.</div>
+                </div>
             </div>
         </section>
         
@@ -821,8 +799,8 @@
                 <a href="#"><i class="fas fa-envelope"></i></a>
                 <a href="#"><i class="fas fa-phone"></i></a>
             </div>
-            <p>&copy; 7/24 Yapay Zeka Destekli İletişim Çözümleri - Tüm Hakları Saklıdır</p>
-            <p>Bizimle WhatsApp'tan iletişime geçin: +90 553 263 2770 | E-posta: info@yapayzeka.com</p>
+            <p>&copy; 7/24 Yapay Zeka Çözümleri</p>
+            <p>WhatsApp: +90 553 263 2770 | E-posta: info@yapayzeka.com</p>
         </footer>
     </div>
     
@@ -834,9 +812,7 @@
                 <span id="currentIndex">1</span> / <span id="totalImages">4</span>
             </div>
             
-            <div class="slides-container" id="slidesContainer">
-                <!-- Slider içeriği JavaScript ile eklenecek -->
-            </div>
+            <div class="slides-container" id="slidesContainer"></div>
             
             <div class="nav-button prev-button" onclick="navigate(-1)">
                 <i class="fas fa-chevron-left"></i>
@@ -852,120 +828,54 @@
         const services = [
             {
                 name: "WhatsApp 7/24 Asistan Otomasyonu",
-                description: "WhatsApp üzerinden gelen müşteri sorularını 7/24 anında yanıtlayan ve randevu oluşturan,güncelleyen ve silen bir emlak otomasyon oluşturduk.",
+                description: "WhatsApp üzerinden müşteri sorularını 7/24 yanıtlayan emlak otomasyonu.",
                 images: [
-                    {
-                        url: "fotoğraflar/wp-1.jpg",
-                        description: "WhatsApp Yapay Zeka çözümümüz, müşterilerinize 7/24 kesintisiz hizmet sunar. Sizler uyurken iş bağlar ve verileri işler."
-                    },
-                    {
-                        url: "fotoğraflar/wp-2.jpg",
-                        description: "Emlak sektörüne özel geliştirdiğimiz modüller sayesinde randevu yönetimi, müşteri takibi ve satış süreçlerini otomatikleştirebilirsiniz."
-                    },
-                    {
-                        url: "fotoğraflar/wp-3.jpg",
-                        description: "Yapay zeka özel olarak randevu no hazırlar."
-                    },
-                    {
-                        url: "fotoğraflar/wp-4.jpg",
-                        description: "Randevu no ile müşteri tarih&saat güncelleyebilir."
-                    },
-                    {
-                        url: "fotoğraflar/wp-5.jpg",
-                        description: ""
-                    },
-                    {
-                        url: "fotoğraflar/wp-6.jpg",
-                        description: "Vermiş olduğunuz bilgiler doğrultusunda müşteriye bilgiler iletilir."
-                    },
-                    {
-                        url: "fotoğraflar/wp-7.jpg",
-                        description: "Eğer o tarih&saat ranndevu doluysa başka tarih&saat ister."
-                    },
-                    {
-                        url: "fotoğraflar/wp-8.jpg",
-                        description: "Müşterinin soracağı soruları düşünerek cevap verir."
-                    },
-                    {
-                        url: "fotoğraflar/wp-9.jpg",
-                        description: "Randevu no ile birlikte randevular iptal edilebilir."
-                    },
-                    {
-                        url: "fotoğraflar/wp-10.jpg",
-                        description: "alınan veiler google sheets işlenir."
-                    },
-                    {
-                        url: "fotoğraflar/wp-11.jpg",
-                        description: "alınan randevular google calendar'a işlenir."
-                    }
+                    { url: "fotoğraflar/wp-1.jpg", description: "7/24 kesintisiz hizmet sunar." },
+                    { url: "fotoğraflar/wp-2.jpg", description: "Emlak için randevu ve müşteri takibi." },
+                    { url: "fotoğraflar/wp-3.jpg", description: "Özel randevu numarası hazırlar." },
+                    { url: "fotoğraflar/wp-4.jpg", description: "Randevu tarih ve saat güncelleme." },
+                    { url: "fotoğraflar/wp-5.jpg", description: "" },
+                    { url: "fotoğraflar/wp-6.jpg", description: "Müşteriye bilgi iletir." },
+                    { url: "fotoğraflar/wp-7.jpg", description: "Dolu randevular için alternatif önerir." },
+                    { url: "fotoğraflar/wp-8.jpg", description: "Soruları öngörerek yanıtlar." },
+                    { url: "fotoğraflar/wp-9.jpg", description: "Randevu iptali sağlar." },
+                    { url: "fotoğraflar/wp-10.jpg", description: "Veriler Google Sheets'e işlenir." },
+                    { url: "fotoğraflar/wp-11.jpg", description: "Randevular Google Calendar'a eklenir." }
                 ]
             },
             {
                 name: "Stok Takip Otomasyonu",
                 description: "",
                 images: [
-                    {
-                        url: "fotoğraflar/stok-1.jpg",
-                        description: ""
-                    },
-                    {
-                        url: "fotoğraflar/stok-2.jpg",
-                        description: ""
-                    },
-                    {
-                        url: "fotoğraflar/stok-3.jpg",
-                        description: ""
-                    }
+                    { url: "fotoğraflar/stok-1.jpg", description: "" },
+                    { url: "fotoğraflar/stok-2.jpg", description: "" },
+                    { url: "fotoğraflar/stok-3.jpg", description: "" }
                 ]
             },
             {
-                name: "hisse takip otomasyonu",
+                name: "Hisse Takip Otomasyonu",
                 description: "",
                 images: [
-                    {
-                        url: "fotoğraflar/hisse-1.jpg",
-                        description: ""
-                    },
-                    {
-                        url: "fotoğraflar/hisse-2.jpg",
-                        description: ""
-                    },
-                    {
-                        url: "fotoğraflar/hisse-3.jpg",
-                        description: ""
-                    },
-                    {
-                        url: "fotoğraflar/hisse-4.jpg",
-                        description: ""
-                    }
+                    { url: "fotoğraflar/hisse-1.jpg", description: "" },
+                    { url: "fotoğraflar/hisse-2.jpg", description: "" },
+                    { url: "fotoğraflar/hisse-3.jpg", description: "" },
+                    { url: "fotoğraflar/hisse-4.jpg", description: "" }
                 ]
             },
             {
-                name: "Yapay zeka entegreli Web Site Chatbot",
+                name: "Web Site Chatbot",
                 description: "",
                 images: [
-                    {
-                        url: "fotoğraflar/chatbot-1.jpg",
-                        description: ""
-                    },
-                    {
-                        url: "fotoğraflar/chatbot-2.jpg",
-                        description: ""
-                    }
+                    { url: "fotoğraflar/chatbot-1.jpg", description: "" },
+                    { url: "fotoğraflar/chatbot-2.jpg", description: "" }
                 ]
             },
             {
-                name: "Görüntü'den Fatura İşleme otomasyonu",
+                name: "Fatura İşleme Otomasyonu",
                 description: "",
                 images: [
-                    {
-                        url: "fotoğraflar/fatura-1.jpg",
-                        description: ""
-                    },
-                    {
-                        url: "WhatsApp Görsel 2025-09-13 saat 13.18.23_f707fe11.jpg",
-                        description: ""
-                    }
+                    { url: "fotoğraflar/fatura-1.jpg", description: "" },
+                    { url: "WhatsApp Görsel 2025-09-13 saat 13.18.23_f707fe11.jpg", description: "" }
                 ]
             }
         ];
@@ -977,36 +887,26 @@
         const currentIndexElement = document.getElementById('currentIndex');
         const totalImagesElement = document.getElementById('totalImages');
         
-        // Fullscreen modal açma fonksiyonu
         function openFullscreenModal(serviceIndex) {
             currentServiceIndex = serviceIndex;
             currentImageIndex = 0;
             updateFullscreenModal();
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
-            
-            setTimeout(() => {
-                modal.classList.add('active');
-            }, 10);
+            setTimeout(() => modal.classList.add('active'), 10);
         }
         
-        // Fullscreen modal kapatma fonksiyonu
         function closeFullscreenModal() {
             modal.classList.remove('active');
-            
             setTimeout(() => {
                 modal.style.display = 'none';
                 document.body.style.overflow = 'auto';
             }, 300);
         }
         
-        // Fullscreen modal içeriğini güncelleme
         function updateFullscreenModal() {
             const service = services[currentServiceIndex];
-            
-            // Slider içeriğini oluştur
             slidesContainer.innerHTML = '';
-            
             service.images.forEach((imageData, index) => {
                 const slide = document.createElement('div');
                 slide.className = 'slide';
@@ -1016,16 +916,11 @@
                 `;
                 slidesContainer.appendChild(slide);
             });
-            
-            // Görsel sayacını güncelle
             currentIndexElement.textContent = currentImageIndex + 1;
             totalImagesElement.textContent = service.images.length;
-            
-            // Slider'ı kaydır
             scrollToCurrentImage();
         }
         
-        // Slider'ı mevcut görsele kaydır
         function scrollToCurrentImage() {
             slidesContainer.scrollTo({
                 left: slidesContainer.clientWidth * currentImageIndex,
@@ -1033,42 +928,26 @@
             });
         }
         
-        // Görsel değiştirme fonksiyonu
         function navigate(direction) {
             const service = services[currentServiceIndex];
             currentImageIndex += direction;
-            
-            // Sınır kontrolleri
-            if (currentImageIndex < 0) {
-                currentImageIndex = 0;
-            } else if (currentImageIndex >= service.images.length) {
-                currentImageIndex = service.images.length - 1;
-            }
-            
+            if (currentImageIndex < 0) currentImageIndex = 0;
+            else if (currentImageIndex >= service.images.length) currentImageIndex = service.images.length - 1;
             updateFullscreenModal();
         }
         
-        // Klavye ile kontrol
         document.addEventListener('keydown', function(event) {
             if (modal.style.display === 'block') {
-                if (event.key === 'ArrowRight') {
-                    navigate(1);
-                } else if (event.key === 'ArrowLeft') {
-                    navigate(-1);
-                } else if (event.key === 'Escape') {
-                    closeFullscreenModal();
-                }
+                if (event.key === 'ArrowRight') navigate(1);
+                else if (event.key === 'ArrowLeft') navigate(-1);
+                else if (event.key === 'Escape') closeFullscreenModal();
             }
         });
         
-        // Modal dışına tıklayarak kapatma
         modal.addEventListener('click', function(event) {
-            if (event.target === modal) {
-                closeFullscreenModal();
-            }
+            if (event.target === modal) closeFullscreenModal();
         });
         
-        // Touch events for mobile swipe
         let touchStartX = 0;
         let touchEndX = 0;
         
@@ -1083,55 +962,40 @@
         
         function handleSwipe() {
             const swipeThreshold = 50;
-            
-            if (touchEndX < touchStartX - swipeThreshold) {
-                // Sola kaydırma - sonraki görsel
-                navigate(1);
-            }
-            
-            if (touchEndX > touchStartX + swipeThreshold) {
-                // Sağa kaydırma - önceki görsel
-                navigate(-1);
-            }
+            if (touchEndX < touchStartX - swipeThreshold) navigate(1);
+            if (touchEndX > touchStartX + swipeThreshold) navigate(-1);
         }
         
-        // Token hesaplama fonksiyonu
         function calculateTokens() {
             const text = document.getElementById('textInput').value;
-            
-            // Karakter ve kelime sayısını hesapla
             const charCount = text.length;
             const wordCount = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
-            
-            // Basit token hesaplama - "merhaba" 4 token olacak şekilde
             let estimatedTokens = 0;
             
             if (text.trim() !== '') {
-                // Kelimeleri ayır
                 const words = text.trim().split(/\s+/);
-                
-                // Her kelime için token sayısını hesapla
                 for (const word of words) {
-                    // "merhaba" kelimesi 4 token olarak hesaplanacak
-                    if (word.toLowerCase() === "merhaba") {
-                        estimatedTokens += 4;
-                    } else {
-                        // Diğer kelimeler için basit bir formül
-                        estimatedTokens += Math.max(1, Math.ceil(word.length * 0.6));
-                    }
+                    if (word.toLowerCase() === "merhaba") estimatedTokens += 4;
+                    else estimatedTokens += Math.max(1, Math.ceil(word.length * 0.6));
                 }
-                
-                // Noktalama işaretleri ve boşluklar için ek tokenlar
                 estimatedTokens += (text.match(/[.,!?;:]/g) || []).length;
             }
             
-            // Değerleri güncelle
             document.getElementById('charCount').textContent = charCount.toLocaleString();
             document.getElementById('wordCount').textContent = wordCount.toLocaleString();
             document.getElementById('tokenCount').textContent = estimatedTokens.toLocaleString();
         }
         
-        // Sayfa yüklendiğinde örnek metin ekle
+        // FAQ toggle functionality (only one open at a time)
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item) otherItem.classList.remove('active');
+                });
+                item.classList.toggle('active');
+            });
+        });
+        
         window.onload = function() {
             const sampleText = "merhaba nasılsın";
             document.getElementById('textInput').value = sampleText;

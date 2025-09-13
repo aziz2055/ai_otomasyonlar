@@ -20,7 +20,7 @@
             color: #333;
             line-height: 1.6;
             min-height: 100vh;
-            padding: 20px;
+            padding: 10px;
         }
         
         @keyframes gradientBG {
@@ -46,17 +46,6 @@
             color: white;
             position: relative;
             overflow: hidden;
-        }
-        
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
-            background-size: 100% 100%;
         }
         
         h1 {
@@ -102,20 +91,7 @@
             overflow: hidden;
             box-shadow: 0 8px 20px rgba(0,0,0,0.12);
             transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
             cursor: pointer;
-        }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.03) 100%);
-            z-index: -1;
         }
         
         .service-card:hover {
@@ -181,59 +157,27 @@
         
         /* Token Hesaplayıcı Bölümü */
         .token-calculator {
-            padding: 60px 40px;
+            padding: 60px 20px;
             background: linear-gradient(to right, #2c3e50, #4ca1af);
             color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .token-calculator::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 C50,100 50,0 100,100 L100,0 Z" fill="rgba(255,255,255,0.1)"/></svg>');
-            background-size: 100% 100%;
         }
         
         .calculator-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
-            position: relative;
         }
         
-        .calculator-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 40px;
         }
         
-        .calculator-image img {
-            width: 100%;
-            max-width: 300px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        
-        .calculator-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        .calculator-content h2 {
+        .calculator-header h2 {
             font-size: 2.2rem;
             margin-bottom: 20px;
-            color: white;
         }
         
-        .calculator-content p {
+        .calculator-header p {
             font-size: 1.1rem;
             margin-bottom: 25px;
             line-height: 1.6;
@@ -242,28 +186,28 @@
         .free-token-badge {
             display: inline-block;
             background: linear-gradient(to right, #ff8c00, #ff0080);
-            padding: 10px 25px;
+            padding: 12px 30px;
             border-radius: 30px;
             font-weight: bold;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             font-size: 1.2rem;
             animation: pulse 2s infinite;
-            text-align: center;
         }
         
-        .input-section {
+        .calculator-content {
             background: rgba(255, 255, 255, 0.1);
-            padding: 25px;
-            border-radius: 10px;
+            padding: 30px;
+            border-radius: 15px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .input-section h3 {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: white;
             display: flex;
             align-items: center;
+            font-size: 1.3rem;
         }
         
         .input-section h3 i {
@@ -271,120 +215,133 @@
             color: #fdbb2d;
         }
         
-        textarea {
+        #textInput {
             width: 100%;
             min-height: 120px;
-            padding: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
+            padding: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
             resize: vertical;
             font-family: inherit;
             font-size: 16px;
             line-height: 1.5;
-            margin-bottom: 20px;
-            background: rgba(255, 255, 255, 0.9);
+            margin-bottom: 25px;
+            background: rgba(255, 255, 255, 0.95);
             color: #2c3e50;
         }
         
-        textarea:focus {
+        #textInput:focus {
             outline: none;
             border-color: #3498db;
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.5);
+            background: white;
         }
         
         .stats {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
         }
         
         .stat-box {
             background: rgba(255, 255, 255, 0.15);
-            padding: 20px;
-            border-radius: 10px;
+            padding: 25px;
+            border-radius: 12px;
             text-align: center;
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .stat-box:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.2);
         }
         
         .stat-value {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: bold;
             color: white;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
         
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: rgba(255, 255, 255, 0.9);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
         
-        /* SSS Modal */
-        #faqModal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
+        .recalculate-btn {
             width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.95);
-            overflow-y: auto;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            padding: 15px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 25px;
+            transition: all 0.3s ease;
         }
         
-        #faqModal.active {
-            opacity: 1;
+        .recalculate-btn:hover {
+            transform: translateY(-2px);
         }
         
-        .faq-modal-content {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            padding: 25px;
-            max-width: 800px;
-            margin: 5% auto;
+        /* SSS Bölümü */
+        .faq-section {
+            padding: 60px 20px;
+            background: #f8f9fa;
         }
         
-        .faq-modal-content h1 {
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .faq-header {
             text-align: center;
-            color: #6e8efb;
-            margin-bottom: 30px;
-            font-size: 28px;
+            margin-bottom: 50px;
+        }
+        
+        .faq-header h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .faq-header p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
         }
         
         .faq-item {
             margin-bottom: 20px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
         
         .faq-question {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px;
-            background: linear-gradient(to right, #6e8efb, #a777e3);
+            padding: 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            border-radius: 10px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 18px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: linear-gradient(135deg, #5a67d8 0%, #667eea 100%);
         }
         
         .faq-question::after {
             content: '+';
-            font-size: 22px;
+            font-size: 24px;
+            font-weight: bold;
             transition: transform 0.3s ease;
+            width: 30px;
+            text-align: center;
         }
         
         .faq-question.active::after {
@@ -395,44 +352,23 @@
             padding: 0;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            background-color: #f8f9fa;
-            border-radius: 0 0 10px 10px;
+            transition: all 0.4s ease;
+            background: white;
         }
         
         .faq-answer.show {
-            max-height: 500px;
-            padding: 20px;
+            max-height: 800px;
+            padding: 30px 25px;
         }
         
         .faq-answer p {
             margin-bottom: 15px;
+            color: #555;
+            line-height: 1.7;
+            font-size: 1rem;
         }
         
-        .close-faq {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 1001;
-            background: rgba(0,0,0,0.5);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: background 0.3s ease;
-        }
-        
-        .close-faq:hover {
-            background: rgba(0,0,0,0.8);
-        }
-        
-        /* Fullscreen modal stilleri */
+        /* Modal stilleri */
         .fullscreen-modal {
             display: none;
             position: fixed;
@@ -442,7 +378,6 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0,0,0,0.95);
-            overflow: hidden;
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -475,25 +410,25 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            padding: 60px;
+            padding: 40px 20px;
             text-align: center;
         }
         
         .slide img {
-            max-width: 100%;
+            max-width: 95%;
             max-height: 70%;
             object-fit: contain;
             margin-bottom: 20px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.3);
         }
         
         .slide-description {
             color: white;
             max-width: 800px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             line-height: 1.6;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.7);
             padding: 20px;
             border-radius: 10px;
         }
@@ -501,24 +436,19 @@
         .close-modal {
             position: absolute;
             top: 20px;
-            right: 30px;
+            right: 20px;
             color: white;
-            font-size: 40px;
+            font-size: 30px;
             font-weight: bold;
             cursor: pointer;
             z-index: 1001;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.6);
             width: 50px;
             height: 50px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: background 0.3s ease;
-        }
-        
-        .close-modal:hover {
-            background: rgba(0,0,0,0.8);
         }
         
         .nav-button {
@@ -526,8 +456,8 @@
             top: 50%;
             transform: translateY(-50%);
             color: white;
-            font-size: 30px;
-            background: rgba(0,0,0,0.5);
+            font-size: 24px;
+            background: rgba(0,0,0,0.6);
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -536,11 +466,6 @@
             align-items: center;
             cursor: pointer;
             z-index: 1001;
-            transition: background 0.3s ease;
-        }
-        
-        .nav-button:hover {
-            background: rgba(0,0,0,0.8);
         }
         
         .prev-button {
@@ -556,37 +481,24 @@
             top: 20px;
             left: 20px;
             color: white;
-            font-size: 18px;
-            background: rgba(0,0,0,0.5);
-            padding: 5px 15px;
+            font-size: 16px;
+            background: rgba(0,0,0,0.6);
+            padding: 8px 15px;
             border-radius: 20px;
             z-index: 1001;
         }
         
+        /* CTA Bölümü */
         .cta-section {
             text-align: center;
-            padding: 50px 20px;
-            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #2c3e50, #4ca1af);
             color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 C50,100 50,0 100,100 L100,0 Z" fill="rgba(255,255,255,0.1)"/></svg>');
-            background-size: 100% 100%;
         }
         
         .cta-content {
             max-width: 800px;
             margin: 0 auto;
-            position: relative;
         }
         
         .cta-title {
@@ -610,61 +522,44 @@
         
         .contact-btn {
             display: inline-block;
-            padding: 16px 40px;
-            background: linear-gradient(to right, #ff8c00, #ff0080);
+            padding: 18px 40px;
+            background: linear-gradient(45deg, #ff8c00, #ff0080);
             color: white;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.2rem;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .contact-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: 0.5s;
-            z-index: 1;
-        }
-        
-        .contact-btn:hover::before {
-            left: 100%;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
         }
         
         .contact-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
         }
         
+        /* Footer */
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 40px;
             background: #2c3e50;
             color: white;
         }
         
         .social-links {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
         .social-links a {
             display: inline-block;
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             background: rgba(255,255,255,0.1);
             border-radius: 50%;
             margin: 0 10px;
             color: white;
-            font-size: 20px;
-            line-height: 45px;
+            font-size: 22px;
+            line-height: 50px;
             transition: all 0.3s ease;
         }
         
@@ -673,77 +568,78 @@
             transform: translateY(-3px);
         }
         
-        /* Responsive tasarım */
+        /* Mobil Responsive */
         @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            
             h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             
             .tagline {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             
             .services {
                 grid-template-columns: 1fr;
-                padding: 25px;
-            }
-            
-            .token-calculator {
-                padding: 40px 20px;
-            }
-            
-            .calculator-container {
-                grid-template-columns: 1fr;
+                padding: 20px;
                 gap: 20px;
             }
             
-            .calculator-image {
-                order: -1;
+            .token-calculator {
+                padding: 40px 15px;
             }
             
-            .calculator-image img {
-                max-width: 200px;
+            .calculator-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .calculator-content {
+                padding: 20px;
             }
             
             .stats {
                 grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .stat-value {
+                font-size: 2rem;
+            }
+            
+            .faq-section {
+                padding: 40px 15px;
+            }
+            
+            .faq-header h2 {
+                font-size: 2rem;
+            }
+            
+            .faq-question {
+                padding: 20px;
+                font-size: 1rem;
+            }
+            
+            .faq-answer.show {
+                padding: 25px 20px;
+            }
+            
+            .slide {
+                padding: 20px 15px;
             }
             
             .nav-button {
-                width: 40px;
-                height: 40px;
+                width: 45px;
+                height: 45px;
                 font-size: 20px;
             }
             
             .close-modal {
-                font-size: 30px;
-                width: 40px;
-                height: 40px;
-                top: 10px;
-                right: 15px;
-            }
-            
-            .close-faq {
-                font-size: 30px;
-                width: 40px;
-                height: 40px;
-                top: 10px;
-                right: 15px;
-            }
-            
-            .image-counter {
-                top: 10px;
-                left: 15px;
-                font-size: 14px;
-            }
-            
-            .slide {
-                padding: 30px 20px;
-            }
-            
-            .slide-description {
-                font-size: 1rem;
-                padding: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 24px;
             }
             
             .cta-title {
@@ -752,24 +648,6 @@
             
             .cta-text {
                 font-size: 1.1rem;
-            }
-            
-            .faq-modal-content {
-                margin: 10% 5%;
-                padding: 15px;
-            }
-            
-            .faq-modal-content h1 {
-                font-size: 24px;
-            }
-            
-            .faq-question {
-                font-size: 16px;
-                padding: 12px;
-            }
-            
-            .faq-answer.show {
-                padding: 15px;
             }
         }
     </style>
@@ -788,7 +666,7 @@
                     <img src="fotoğraflar/wp-başlık.jpg" alt="WhatsApp Yapay Zeka" class="thumbnail">
                 </div>
                 <div class="service-info">
-                    <h3><i class="fas fa-robot"></i> WhatsApp 7/24 Asistan Otomasyonu</h3>
+                    <h3><i class="fab fa-whatsapp"></i> WhatsApp 7/24 Asistan Otomasyonu</h3>
                     <p>WhatsApp üzerinden geliştirdiğimiz May emlak asistanı çalışmamız.</p>
                     <a class="read-more">Detayları Görüntüle</a>
                 </div>
@@ -799,7 +677,7 @@
                     <img src="fotoğraflar/stok-başlık.jpg" alt="Stok Takip Otomasyonu" class="thumbnail">
                 </div>
                 <div class="service-info">
-                    <h3><i class="fas fa-robot"></i> Stok Takip Otomasyonu</h3>
+                    <h3><i class="fas fa-boxes"></i> Stok Takip Otomasyonu</h3>
                     <p>Geliştirdiğimiz özel stok takibi asistanı.</p>
                     <a class="read-more">Detayları Görüntüle</a>
                 </div>
@@ -810,7 +688,7 @@
                     <img src="fotoğraflar/hisse-başlık.png" alt="hisse takip otomasyonu" class="thumbnail">
                 </div>
                 <div class="service-info">
-                    <h3><i class="fas fa-robot"></i> Hisse Takip Otomasyonu</h3>
+                    <h3><i class="fas fa-chart-line"></i> Hisse Takip Otomasyonu</h3>
                     <p>Geliştirdiğimiz özel hisse takip otomasyonu.</p>
                     <a class="read-more">Detayları Görüntüle</a>
                 </div>
@@ -832,8 +710,8 @@
                     <img src="WhatsApp Görsel 2025-09-11 saat 16.08.19_efbdb551.jpg" alt="Görüntü'den Fatura İşleme otomasyonu" class="thumbnail">
                 </div>
                 <div class="service-info">
-                    <h3><i class="fas fa-robot"></i> Görüntü'den Fatura İşleme Otomasyonu</h3>
-                    <p>Geliştirmiş olduğumuz otomasyon bütün faturaları Google Sheets'e işler.</p>
+                    <h3><i class="fas fa-file-invoice"></i> Görüntü'den Fatura İşleme Otomasyonu</h3>
+                    <p>Geliştirmiş olduğumuz otomasyon bütün faturaları google sheets işler.</p>
                     <a class="read-more">Detayları Görüntüle</a>
                 </div>
             </div>
@@ -842,21 +720,19 @@
         <!-- Token Hesaplayıcı Bölümü -->
         <section class="token-calculator">
             <div class="calculator-container">
-                <div class="calculator-image">
-                    <!-- Eğer bir görüntü eklemek isterseniz buraya src ekleyin, yoksa boş bırakın -->
-                </div>
-                
-                <div class="calculator-content">
+                <div class="calculator-header">
                     <h2>Yapay Zeka Çağında Siz de Yerinizi Alın!</h2>
                     <p>AI destekli çözümlerimizle işletmenizi geleceğe taşıyın. Müşteri etkileşimlerinizi otomatikleştirin, satışlarınızı artırın ve 7/24 kesintisiz hizmet sunun.</p>
                     
                     <div class="free-token-badge">
                         <i class="fas fa-gift"></i> 1.000.000 TOKEN BEDAVA!
                     </div>
-                    
+                </div>
+                
+                <div class="calculator-content">
                     <div class="input-section">
                         <h3><i class="fas fa-calculator"></i> Token Hesaplayıcı</h3>
-                        <textarea id="textInput" placeholder="Metninizi buraya yazın... Örnek: 'merhaba' 4 token olarak hesaplanır"></textarea>
+                        <textarea id="textInput" placeholder="Metninizi buraya yazın... Her karakter 0.4 token olarak hesaplanır"></textarea>
                         
                         <div class="stats">
                             <div class="stat-box">
@@ -872,8 +748,64 @@
                                 <div class="stat-label">Token</div>
                             </div>
                         </div>
-                        <button onclick="calculateTokens()" style="margin-top: 15px; background: linear-gradient(to right, #6e8efb, #a777e3); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Yeniden Hesapla</button>
-                        <button onclick="openFaqModal()" style="margin-top: 10px; background: linear-gradient(to right, #ff8c00, #ff0080); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Sıkça Sorulan Sorular</button>
+                        
+                        <button class="recalculate-btn" onclick="calculateTokens()">
+                            <i class="fas fa-sync-alt"></i> Yeniden Hesapla
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SSS Bölümü -->
+        <section class="faq-section">
+            <div class="faq-container">
+                <div class="faq-header">
+                    <h2>Sıkça Sorulan Sorular</h2>
+                    <p>Token hesaplama ve yapay zeka hizmetlerimiz hakkında merak ettiğiniz her şey</p>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Token nedir ve nasıl hesaplanır?</div>
+                    <div class="faq-answer">
+                        <p>Token, yapay zeka modellerinin metni işlemek için kullandığı temel birimdir. Kelimeler, alt kelime parçaları veya tek karakterlerden oluşabilir.</p>
+                        <p>Sistemimizde her karakter 0.4 token olarak hesaplanmaktadır. Bu nedenle 10 karakterlik bir metin yaklaşık 4 token'a eşittir.</p>
+                        <p>Noktalama işaretleri de token sayısına dahil edilir.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Neden token sayısı önemlidir?</div>
+                    <div class="faq-answer">
+                        <p>Token sayısı, yapay zeka modellerinin işleyebileceği metin uzunluğunu belirler. Modellerin genellikle maksimum token sınırı vardır.</p>
+                        <p>Ayrıca, birçok API hizmeti kullanım başına token sayısına göre fiyatlandırma yapar, bu nedenle token sayısını bilmek maliyet tahmini yapmanıza yardımcı olur.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">WhatsApp otomasyonu nasıl çalışır?</div>
+                    <div class="faq-answer">
+                        <p>WhatsApp otomasyonumuz, gelen mesajları yapay zeka ile analiz eder ve anında uygun yanıtlar verir.</p>
+                        <p>Randevu alma, müşteri sorularını yanıtlama ve veri toplama gibi işlemleri 7/24 otomatik olarak gerçekleştirir.</p>
+                        <p>Tüm veriler güvenli bir şekilde Google Sheets'e kaydedilir.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Fiyatlandırma nasıl yapılıyor?</div>
+                    <div class="faq-answer">
+                        <p>Fiyatlarımız projenin kapsamına, kullanılacak özelliklere ve token tüketimine göre belirlenir.</p>
+                        <p>İlk 1.000.000 token tamamen ücretsizdir. Sonrasında kullanım bazlı esnek fiyatlandırma sunuyoruz.</p>
+                        <p>Detaylı fiyat teklifi için bizimle iletişime geçin.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Kurulum süreci ne kadar sürer?</div>
+                    <div class="faq-answer">
+                        <p>Basit WhatsApp otomasyonları 1-3 gün içinde kurulabilir.</p>
+                        <p>Karmaşık entegrasyonlar ve özel geliştirmeler 1-2 hafta sürebilir.</p>
+                        <p>Kurulum sonrası eğitim ve destek sağlanır.</p>
                     </div>
                 </div>
             </div>
@@ -890,442 +822,4 @@
                     WhatsApp, Telegram ve web siteniz için özelleştirilmiş yapay zeka asistanları. Doğal dil işleme teknolojisiyle müşterilerinizle insan gibi konuşan, 
                     soruları anlayan ve doğru yanıtlar veren akıllı sistemler.
                 </p>
-                <a href="https://wa.me/90552632770?text=yapay%20zeka%20otomasyon%20bilgi%20almak%20istiyorum" class="contact-btn">HEMEN TEKLİF ALIN</a>
-            </div>
-        </section>
-        
-        <footer id="contact">
-            <div class="social-links">
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
-                <a href="#"><i class="fab fa-telegram"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
-                <a href="#"><i class="fas fa-phone"></i></a>
-            </div>
-            <p>&copy; 7/24 Yapay Zeka Destekli İletişim Çözümleri</p>
-            <p>Bizimle WhatsApp'tan iletişime geçin: +90 553 263 2770</p>
-        </footer>
-    </div>
-    
-    <!-- Fullscreen Modal -->
-    <div id="fullscreenModal" class="fullscreen-modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeFullscreenModal()">&times;</span>
-            <div class="image-counter">
-                <span id="currentIndex">1</span> / <span id="totalImages">4</span>
-            </div>
-            
-            <div class="slides-container" id="slidesContainer">
-                <!-- Slider içeriği JavaScript ile eklenecek -->
-            </div>
-            
-            <div class="nav-button prev-button" onclick="navigate(-1)">
-                <i class="fas fa-chevron-left"></i>
-            </div>
-            <div class="nav-button next-button" onclick="navigate(1)">
-                <i class="fas fa-chevron-right"></i>
-            </div>
-        </div>
-    </div>
-
-    <!-- SSS Modal -->
-    <div id="faqModal" class="fullscreen-modal">
-        <div class="faq-modal-content">
-            <h1>Sıkça Sorulan Sorular</h1>
-            
-            <div class="faq-item">
-                <div class="faq-question">Token nedir ve nasıl hesaplanır?</div>
-                <div class="faq-answer">
-                    <p>Token, doğal dil işleme modellerinin metni işlemek için kullandığı temel birimdir. Kelimeler, alt kelime parçaları veya tek karakterlerden oluşabilir.</p>
-                    <p>Örneğin, "merhaba" kelimesi 4 token'a bölünebilir: "mer", "ha", "b", "a". Uygulamamızda bu kelime özel olarak 4 token olarak hesaplanmaktadır.</p>
-                    <p>Diğer kelimeler için genellikle kelime uzunluğunun %60'ı kadar token üretilir, bu nedenle daha uzun kelimeler daha fazla token'a sahip olur.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">Neden "merhaba" kelimesi 4 token olarak hesaplanıyor?</div>
-                <div class="faq-answer">
-                    <p>"merhaba" kelimesi, dil modellerinde sıklıkla 4 parçaya bölünen bir kelime olduğu için örnek olarak bu şekilde hesaplanmaktadır.</p>
-                    <p>Bu, gerçek dil modellerinin çalışma şeklini simüle etmek için yapılmıştır. Gerçek token sayıları kullanılan modele göre değişiklik gösterebilir.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">Noktalama işaretleri token olarak sayılıyor mu?</div>
-                <div class="faq-answer">
-                    <p>Evet, noktalama işaretleri genellikle ayrı token'lar olarak sayılır. Uygulamamızda da nokta, virgül, soru işareti, ünlem işareti ve benzeri noktalama işaretleri token sayısına eklenmektedir.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">Token sayısı neden önemlidir?</div>
-                <div class="faq-answer">
-                    <p>Token sayısı, dil modellerinin işleyebileceği metin uzunluğunu belirler. Modellerin genellikle maksimum token sınırı vardır.</p>
-                    <p>Ayrıca, birçok API hizmeti kullanım başına token sayısına göre fiyatlandırma yapar, bu nedenle token sayısını bilmek maliyet tahmini yapmanıza yardımcı olur.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">Hesaplamamın doğruluğundan nasıl emin olabilirim?</div>
-                <div class="faq-answer">
-                    <p>Uygulamamız genel bir tahmin sunar, ancak farklı dil modelleri token'ları farklı şekillerde hesaplayabilir.</p>
-                    <p>Kesin token sayısını öğrenmek için kullandığınız modelin tokenizer'ını doğrudan kullanmanızı öneririz. OpenAI gibi birçok sağlayıcı, kendi tokenizer araçlarını sunmaktadır.</p>
-                </div>
-            </div>
-        </div>
-        <span class="close-faq" onclick="closeFaqModal()">&times;</span>
-    </div>
-
-    <script>
-        // Hizmet verileri
-        const services = [
-            {
-                name: "WhatsApp 7/24 Asistan Otomasyonu",
-                description: "WhatsApp üzerinden gelen müşteri sorularını 7/24 anında yanıtlayan ve randevu oluşturan, güncelleyen ve silen bir emlak otomasyon oluşturduk.",
-                images: [
-                    {
-                        url: "fotoğraflar/wp-1.jpg",
-                        description: "WhatsApp Yapay Zeka çözümümüz, müşterilerinize 7/24 kesintisiz hizmet sunar. Sizler uyurken iş bağlar ve verileri işler."
-                    },
-                    {
-                        url: "fotoğraflar/wp-2.jpg",
-                        description: "Emlak sektörüne özel geliştirdiğimiz modüller sayesinde randevu yönetimi, müşteri takibi ve satış süreçlerini otomatikleştirebilirsiniz."
-                    },
-                    {
-                        url: "fotoğraflar/wp-3.jpg",
-                        description: "Yapay zeka özel olarak randevu no hazırlar."
-                    },
-                    {
-                        url: "fotoğraflar/wp-4.jpg",
-                        description: "Randevu no ile müşteri tarih&saat güncelleyebilir."
-                    },
-                    {
-                        url: "fotoğraflar/wp-5.jpg",
-                        description: ""
-                    },
-                    {
-                        url: "fotoğraflar/wp-6.jpg",
-                        description: "Vermiş olduğunuz bilgiler doğrultusunda müşteriye bilgiler iletilir."
-                    },
-                    {
-                        url: "fotoğraflar/wp-7.jpg",
-                        description: "Eğer o tarih&saat randevu doluysa başka tarih&saat ister."
-                    },
-                    {
-                        url: "fotoğraflar/wp-8.jpg",
-                        description: "Müşterinin soracağı soruları düşünerek cevap verir."
-                    },
-                    {
-                        url: "fotoğraflar/wp-9.jpg",
-                        description: "Randevu no ile birlikte randevular iptal edilebilir."
-                    },
-                    {
-                        url: "fotoğraflar/wp-10.jpg",
-                        description: "Alınan veriler Google Sheets'e işlenir."
-                    },
-                    {
-                        url: "fotoğraflar/wp-11.jpg",
-                        description: "Alınan randevular Google Calendar'a işlenir."
-                    }
-                ]
-            },
-            {
-                name: "Stok Takip Otomasyonu",
-                description: "",
-                images: [
-                    {
-                        url: "fotoğraflar/stok-1.jpg",
-                        description: ""
-                    },
-                    {
-                        url: "fotoğraflar/stok-2.jpg",
-                        description: ""
-                    },
-                    {
-                        url: "fotoğraflar/stok-3.jpg",
-                        description: ""
-                    }
-                ]
-            },
-            {
-                name: "Hisse Takip Otomasyonu",
-                description: "",
-                images: [
-                    {
-                        url: "fotoğraflar/hisse-1.jpg",
-                        description: ""
-                    },
-                    {
-                        url: "fotoğraflar/hisse-2.jpg",
-                        description: ""
-                    },
-                    {
-                        url: "fotoğraflar/hisse-3.jpg",
-                        description: ""
-                    },
-                    {
-                        url: "fotoğraflar/hisse-4.jpg",
-                        description: ""
-                    }
-                ]
-            },
-            {
-                name: "Yapay Zeka Entegreli Web Site Chatbot",
-                description: "",
-                images: [
-                    {
-                        url: "fotoğraflar/chatbot-1.jpg",
-                        description: ""
-                    },
-                    {
-                        url: "fotoğraflar/chatbot-2.jpg",
-                        description: ""
-                    }
-                ]
-            },
-            {
-                name: "Görüntü'den Fatura İşleme Otomasyonu",
-                description: "",
-                images: [
-                    {
-                        url: "fotoğraflar/fatura-1.jpg",
-                        description: ""
-                    },
-                    {
-                        url: "WhatsApp Görsel 2025-09-13 saat 13.18.23_f707fe11.jpg",
-                        description: ""
-                    }
-                ]
-            }
-        ];
-        
-        let currentServiceIndex = 0;
-        let currentImageIndex = 0;
-        const modal = document.getElementById('fullscreenModal');
-        const slidesContainer = document.getElementById('slidesContainer');
-        const currentIndexElement = document.getElementById('currentIndex');
-        const totalImagesElement = document.getElementById('totalImages');
-        
-        // Fullscreen modal açma fonksiyonu
-        function openFullscreenModal(serviceIndex) {
-            currentServiceIndex = serviceIndex;
-            currentImageIndex = 0;
-            updateFullscreenModal();
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-            
-            setTimeout(() => {
-                modal.classList.add('active');
-            }, 10);
-        }
-        
-        // Fullscreen modal kapatma fonksiyonu
-        function closeFullscreenModal() {
-            modal.classList.remove('active');
-            
-            setTimeout(() => {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }, 300);
-        }
-        
-        // Fullscreen modal içeriğini güncelleme
-        function updateFullscreenModal() {
-            const service = services[currentServiceIndex];
-            
-            // Slider içeriğini oluştur
-            slidesContainer.innerHTML = '';
-            
-            service.images.forEach((imageData, index) => {
-                const slide = document.createElement('div');
-                slide.className = 'slide';
-                slide.innerHTML = `
-                    <img src="${imageData.url}" alt="${service.name} Görsel ${index + 1}">
-                    <div class="slide-description">${imageData.description}</div>
-                `;
-                slidesContainer.appendChild(slide);
-            });
-            
-            // Görsel sayacını güncelle
-            currentIndexElement.textContent = currentImageIndex + 1;
-            totalImagesElement.textContent = service.images.length;
-            
-            // Slider'ı kaydır
-            scrollToCurrentImage();
-        }
-        
-        // Slider'ı mevcut görsele kaydır
-        function scrollToCurrentImage() {
-            slidesContainer.scrollTo({
-                left: slidesContainer.clientWidth * currentImageIndex,
-                behavior: 'smooth'
-            });
-        }
-        
-        // Görsel değiştirme fonksiyonu
-        function navigate(direction) {
-            const service = services[currentServiceIndex];
-            currentImageIndex += direction;
-            
-            // Sınır kontrolleri
-            if (currentImageIndex < 0) {
-                currentImageIndex = 0;
-            } else if (currentImageIndex >= service.images.length) {
-                currentImageIndex = service.images.length - 1;
-            }
-            
-            updateFullscreenModal();
-        }
-        
-        // Klavye ile kontrol
-        document.addEventListener('keydown', function(event) {
-            if (modal.style.display === 'block') {
-                if (event.key === 'ArrowRight') {
-                    navigate(1);
-                } else if (event.key === 'ArrowLeft') {
-                    navigate(-1);
-                } else if (event.key === 'Escape') {
-                    closeFullscreenModal();
-                }
-            }
-        });
-        
-        // Modal dışına tıklayarak kapatma
-        modal.addEventListener('click', function(event) {
-            if (event.target === modal) {
-                closeFullscreenModal();
-            }
-        });
-        
-        // Touch events for mobile swipe
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        slidesContainer.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, false);
-        
-        slidesContainer.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, false);
-        
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            
-            if (touchEndX < touchStartX - swipeThreshold) {
-                // Sola kaydırma - sonraki görsel
-                navigate(1);
-            }
-            
-            if (touchEndX > touchStartX + swipeThreshold) {
-                // Sağa kaydırma - önceki görsel
-                navigate(-1);
-            }
-        }
-        
-        // Token hesaplama fonksiyonu
-        function calculateTokens() {
-            const text = document.getElementById('textInput').value;
-            
-            // Karakter ve kelime sayısını hesapla
-            const charCount = text.length;
-            const wordCount = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
-            
-            // Basit token hesaplama - "merhaba" 4 token olacak şekilde
-            let estimatedTokens = 0;
-            
-            if (text.trim() !== '') {
-                // Kelimeleri ayır
-                const words = text.trim().split(/\s+/);
-                
-                // Her kelime için token sayısını hesapla
-                for (const word of words) {
-                    // "merhaba" kelimesi 4 token olarak hesaplanacak
-                    if (word.toLowerCase() === "merhaba") {
-                        estimatedTokens += 4;
-                    } else {
-                        // Diğer kelimeler için basit bir formül
-                        estimatedTokens += Math.max(1, Math.ceil(word.length * 0.6));
-                    }
-                }
-                
-                // Noktalama işaretleri ve boşluklar için ek tokenlar
-                estimatedTokens += (text.match(/[.,!?;:]/g) || []).length;
-            }
-            
-            // Değerleri güncelle
-            document.getElementById('charCount').textContent = charCount.toLocaleString();
-            document.getElementById('wordCount').textContent = wordCount.toLocaleString();
-            document.getElementById('tokenCount').textContent = estimatedTokens.toLocaleString();
-        }
-        
-        // Textarea input event listener
-        document.getElementById('textInput').addEventListener('input', calculateTokens);
-        
-        // Sayfa yüklendiğinde örnek metin ekle
-        window.onload = function() {
-            const sampleText = "merhaba nasılsın";
-            document.getElementById('textInput').value = sampleText;
-            calculateTokens();
-            
-            // SSS accordion event listeners
-            document.querySelectorAll('.faq-question').forEach(question => {
-                question.addEventListener('click', () => {
-                    const answer = question.nextElementSibling;
-                    const isActive = question.classList.contains('active');
-                    
-                    // Tüm açık cevapları kapat
-                    document.querySelectorAll('.faq-question').forEach(q => {
-                        q.classList.remove('active');
-                    });
-                    document.querySelectorAll('.faq-answer').forEach(a => {
-                        a.classList.remove('show');
-                    });
-                    
-                    // Tıklananı aç
-                    if (!isActive) {
-                        question.classList.add('active');
-                        answer.classList.add('show');
-                    }
-                });
-            });
-        };
-        
-        // SSS Modal açma
-        function openFaqModal() {
-            const faqModal = document.getElementById('faqModal');
-            faqModal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-            
-            setTimeout(() => {
-                faqModal.classList.add('active');
-            }, 10);
-        }
-        
-        // SSS Modal kapatma
-        function closeFaqModal() {
-            const faqModal = document.getElementById('faqModal');
-            faqModal.classList.remove('active');
-            
-            setTimeout(() => {
-                faqModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }, 300);
-        }
-        
-        // SSS Modal dışına tıklama
-        document.getElementById('faqModal').addEventListener('click', function(event) {
-            if (event.target === this) {
-                closeFaqModal();
-            }
-        });
-        
-        // Klavye ile SSS kapatma
-        document.addEventListener('keydown', function(event) {
-            if (document.getElementById('faqModal').style.display === 'block' && event.key === 'Escape') {
-                closeFaqModal();
-            }
-        });
-    </script>
-</body>
-</html>
+                <a href="https

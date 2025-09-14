@@ -414,24 +414,11 @@
         
         .slide img {
             max-width: 100%;
-            max-height: 60%;
+            max-height: 90%;
             object-fit: contain;
             margin-bottom: 15px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
-        
-        .slide-placeholder {
-            width: 80%;
-            height: 60%;
-            background: linear-gradient(45deg, #555, #333);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            flex-direction: column;
         }
         
         .slide-description {
@@ -1113,19 +1100,11 @@
                 
                 if (imageData.url && imageData.url.trim() !== '') {
                     slide.innerHTML = `
-                        <img src="${imageData.url}" alt="${service.name} Görsel ${index + 1}" onerror="handleModalImageError(this)">
-                        <div class="slide-placeholder">
-                            <i class="fas fa-image" style="font-size: 48px; margin-bottom: 16px;"></i>
-                            <p>Görsel yüklenemedi</p>
-                        </div>
+                        <img src="${imageData.url}" alt="${service.name} Görsel ${index + 1}" onerror="this.style.display='none'">
                         <div class="slide-description">${imageData.description}</div>
                     `;
                 } else {
                     slide.innerHTML = `
-                        <div class="slide-placeholder">
-                            <i class="fas fa-image" style="font-size: 48px; margin-bottom: 16px;"></i>
-                            <p>Görsel bulunamadı</p>
-                        </div>
                         <div class="slide-description">${imageData.description}</div>
                     `;
                 }
@@ -1136,14 +1115,6 @@
             currentIndexElement.textContent = currentImageIndex + 1;
             totalImagesElement.textContent = service.images.length;
             scrollToCurrentImage();
-        }
-        
-        function handleModalImageError(img) {
-            img.style.display = 'none';
-            const placeholder = img.nextElementSibling;
-            if (placeholder && placeholder.classList.contains('slide-placeholder')) {
-                placeholder.style.display = 'flex';
-            }
         }
         
         function scrollToCurrentImage() {

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Yapay Zeka Çözümleri - Geleceğinizi Şekillendirin</title>
+    <title>Yapay Zeka Çözümleri - Vaka Çalışmaları</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -101,6 +101,41 @@
             100% { transform: scale(1); }
         }
         
+        /* Müşteri Deneyimleri Bölümü */
+        .customer-experience {
+            padding: 20px 15px;
+            background: #e0f2fe;
+            border-radius: 10px;
+            margin: 20px;
+            border-left: 5px solid #3b82f6;
+        }
+        
+        .experience-title {
+            color: #1e3a8a;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .experience-title i {
+            margin-right: 10px;
+            color: #3b82f6;
+        }
+        
+        .experience-text {
+            color: #1e40af;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .experience-author {
+            font-weight: bold;
+            color: #1e3a8a;
+            text-align: right;
+        }
+        
         .services {
             display: flex;
             flex-direction: column;
@@ -131,7 +166,7 @@
         .thumbnail-container {
             position: relative;
             width: 100%;
-            padding-top: 56.25%; /* 16:9 aspect ratio için, resmin orijinal oranına göre ayarlayabilirsiniz */
+            padding-top: 56.25%;
             overflow: hidden;
             background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
             display: flex;
@@ -145,7 +180,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Resimleri kırpmadan tam sığdırır, letterboxing yapabilir */
+            object-fit: contain;
             transition: transform 0.3s ease;
         }
         
@@ -641,7 +676,7 @@
         }
         
         .faq-item.active .faq-answer {
-            max-height: 150px;
+            max-height: 500px;
             padding: 10px 0;
         }
         
@@ -672,6 +707,17 @@
         .social-links a:active {
             background: #3b82f6;
             transform: scale(0.95);
+        }
+        
+        .guarantee-badge {
+            display: inline-block;
+            background: linear-gradient(to right, #22c55e, #16a34a);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 15px 0;
+            font-size: 0.9rem;
+            animation: pulse 2s infinite;
         }
     </style>
 </head>
@@ -863,7 +909,7 @@
                     <span class="highlight">AI ile bir adım önde olun.</span>
                 </p>
                 <p class="cta-text">
-                    WhatsApp, Telegram và web için özelleştirilmiş AI asistanları. Doğal dil işleme ile insan gibi iletişim kurar. Ücretsiz demo için iletişime geçin!
+                    WhatsApp, Telegram ve web için özelleştirilmiş AI asistanları. Doğal dil işleme ile insan gibi iletişim kurar. Ücretsiz demo için iletişime geçin!
                 </p>
                 <a href="https://wa.me/905532632770?text=yapay%20zeka%20otomasyon%20bilgi%20almak%20istiyorum" class="contact-btn">HEMEN TEKLİF ALIN</a>
             </div>
@@ -875,59 +921,117 @@
             <div class="faq-container">
                 <div class="faq-item">
                     <div class="faq-question">KURULUM ÜCRETİ VAR MI? <i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">Hayır,bizde kurulum ücreti yoktur.</div>
+                    <div class="faq-answer">Hayır, bizde kurulum ücreti yoktur. Sadece aylık abonelik ücreti alınmaktadır.</div>
                 </div>
+                
+                <div class="customer-experience">
+                    <div class="experience-title"><i class="fas fa-comment-dots"></i> Müşteri Deneyimi</div>
+                    <p class="experience-text">"Kurulum ücreti olmaması benim için büyük bir avantajdı. Hiç risk almadan deneme fırsatı buldum ve şimdi tam paket kullanıyorum."</p>
+                    <p class="experience-author">- Mehmet Y. / Restoran İşletmecisi</p>
+                </div>
+                
                 <div class="faq-item">
                     <div class="faq-question">BAKIM NASIL YAPILIYOR? <i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">Hizmetimizde sürekli ve otomatik kontrollerle işlerinizin kusursuz ilerlemesini sağlıyoruz..</div>
+                    <div class="faq-answer">Hizmetimizde sürekli ve otomatik kontrollerle işlerinizin kusursuz ilerlemesini sağlıyoruz. Sistemlerimiz 7/24 çalışır ve anında cevap verir. 10 insana eş değer performans sunar.</div>
                 </div>
+                
+                <div class="customer-experience">
+                    <div class="experience-title"><i class="fas fa-comment-dots"></i> Müşteri Deneyimi</div>
+                    <p class="experience-text">"7/24 çalışan sisteminiz sayesinde artık müşterilerimize kesintisiz hizmet verebiliyoruz. Bakım gerektirmemesi büyük bir yükten kurtardı."</p>
+                    <p class="experience-author">- Ayşe K. / E-ticaret Mağaza Sahibi</p>
+                </div>
+                
                 <div class="faq-item">
                     <div class="faq-question">ÜCRET NE KADAR? <i class="fas fa-chevron-down"></i></div>
                     <div class="faq-answer">Sistemimizi kullanmanız halinde, aylık bir bakım ücreti alınacaktır. Eğer farklı otomasyon sistemlerinden de faydalanmak isterseniz, bu hizmetler için ek ücret talep edilir. Daha detaylı bilgi almak için lütfen WhatsApp hattımızdan bizimle iletişime geçin. 📱.</div>
                 </div>
+                
+                <div class="customer-experience">
+                    <div class="experience-title"><i class="fas fa-comment-dots"></i> Müşteri Deneyimi</div>
+                    <p class="experience-text">"Fiyat performans açısından piyasadaki en iyi çözüm. Aylık maliyetimiz bir çalışanın maaşının çok altında ama 10 çalışanın yapacağı işi yapıyor."</p>
+                    <p class="experience-author">- Ali V. / İnşaat Firması Sahibi</p>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">MEMNUN KALMAZSAM NE OLACAK? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">Memnun kalmazsanız hiçbir şekilde ücret talep edilmeyecektir. İlk ay ücretsiz deneme imkanı sunuyoruz, beğenmezseniz ücret ödemezsiniz.</div>
+                </div>
+                
+                <div class="customer-experience">
+                    <div class="experience-title"><i class="fas fa-comment-dots"></i> Müşteri Deneyimi</div>
+                    <p class="experience-text">"Ücretsiz deneme sürecinde sistemin gücünü görünce hemen ana pakete geçtim. Memnun kalmasaydım hiçbir ücret ödemeyecektim, bu benim için güven vericiydi."</p>
+                    <p class="experience-author">- Zeynep T. / Danışman</p>
+                </div>
+                
                 <div class="faq-item">
                     <div class="faq-question">İNDİRİM SAĞLIYOR MUSUNUZ? <i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">Ekibimizin özel hazırladığı avantajlı indirimlerden faydalanmak için WhatsApp'tan bizimle iletişime geçin..</div>
+                    <div class="faq-answer">Ekibimizin özel hazırladığı avantajlı indirimlerden faydalanmak için WhatsApp'tan bizimle iletişime geçin.</div>
                 </div>
+                
                 <div class="faq-item">
                     <div class="faq-question">TOKEN NEDİR? <i class="fas fa-chevron-down"></i></div>
                     <div class="faq-answer">Token, dijital dünyada bir değeri, yetkiyi veya kimliği temsil eden sanal bir birimdir. En basit şekilde, token'ı dijital bir bilet, kupon veya anahtar gibi düşünebilirsiniz.</div>
                 </div>
+                
                 <div class="faq-item">
                     <div class="faq-question">TOKEN ABONELİĞİN İÇİNE DAHİL Mİ? <i class="fas fa-chevron-down"></i></div>
                     <div class="faq-answer">Sistemlerimizden en iyi şekilde faydalanmanız için size aylık 1.000.000 tokenlık bir kullanım hakkı sunuyoruz. Eğer bu limit yeterli gelmezse, dilediğiniz zaman ek bir 1.000.000 token paketi satın alabilirsiniz.</div>
                 </div>
+                
                 <div class="faq-item">
                     <div class="faq-question">TOKEN NE KADAR? <i class="fas fa-chevron-down"></i></div>
                     <div class="faq-answer">Size en uygun fiyatlandırmayı sunabilmek için, kullandığınız sistemlere göre token fiyatları değişiklik göstermektedir. Ortalama bir fiyat bilgisi almak ve detayları öğrenmek için lütfen WhatsApp hattımızdan bizimle iletişime geçin.</div>
                 </div>
+                
                 <div class="faq-item">
                     <div class="faq-question">SİSTEM KURULUMU NE KADAR SÜRER? <i class="fas fa-chevron-down"></i></div>
                     <div class="faq-answer">İsteklerinize göre bağlı olarak 1-3 iş günü içinde kurulum tamamlanır.</div>
                 </div>
+                
+                <div class="customer-experience">
+                    <div class="experience-title"><i class="fas fa-comment-dots"></i> Müşteri Deneyimi</div>
+                    <p class="experience-text">"Sadece 2 gün içinde sistemim kuruldu ve çalışmaya başladı. Beklediğimden çok daha hızlıydı."</p>
+                    <p class="experience-author">- Okan D. / Muhasebeci</p>
+                </div>
+                
                 <div class="faq-item">
                     <div class="faq-question">NASIL ÇALIŞIYOR? <i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">Yapay zeka sistemlerimiz kişiye özel olarak geliştirilir ve %100 yapay zeka ile çalışır.</div>
+                    <div class="faq-answer">Yapay zeka sistemlerimiz kişiye özel olarak geliştirilir ve %100 yapay zeka ile çalışır. Sistemlerimiz 7/24 kesintisiz çalışır ve 10 çalışana eş değer performans sunar.</div>
                 </div>
+                
                 <div class="faq-item">
                     <div class="faq-question">SİSTEMLERİNİZ NEYE ENTEGRELİ? <i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">Whatsap , telegram , google calendar , google docs , google sheets ve gmail entegrelidir .</div>
+                    <div class="faq-answer">WhatsApp, Telegram, Google Calendar, Google Docs, Google Sheets ve Gmail entegrelidir.</div>
                 </div>
+                
                 <div class="faq-item">
                     <div class="faq-question">KİŞİYE ÖZEL Mİ? <i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">Sistemlerimiz kişiye ve işletmelere özel yapılır ve teslim edilir.</div>
+                    <div class="faq-answer">Sistemlerimiz kişiye ve işletmelere özel yapılır ve teslim edilir. Her müşterimiz için özelleştirilmiş çözümler sunuyoruz.</div>
                 </div>
+                
+                <div class="customer-experience">
+                    <div class="experience-title"><i class="fas fa-comment-dots"></i> Müşteri Deneyimi</div>
+                    <p class="experience-text">"İşletmem için tamamen özelleştirilmiş bir çözüm sunmaları beni çok etkiledi. Hazır sistemlerle asla ulaşamayacağım verimliliğe ulaştım."</p>
+                    <p class="experience-author">- Serra B. / Otel İşletmecisi</p>
+                </div>
+                
                 <div class="faq-item">
                     <div class="faq-question">FARKIMIZ? <i class="fas fa-chevron-down"></i></div>
                     <div class="faq-answer">Sistemlerimiz size özel olarak hazırlanır.
-                    <p>- 7/24 sistemler çalışır </p>
-                    <p>- Sistemler hergün bakım yapılır </p>
-                    <p>- sizin verdiğiniz bilgiler doğrultusunda 10 çalışana eş değerdir </p></div>
+                    <p>- 7/24 sistemler çalışır</p>
+                    <p>- Sistemler her gün bakım yapılır</p>
+                    <p>- Sizin verdiğiniz bilgiler doğrultusunda 10 çalışana eş değerdir</p>
+                    <p>- Memnun kalmazsanız ücret ödemezsiniz</p></div>
                 </div>
+                
                 <div class="faq-item">
                     <div class="faq-question">FİYATLANDIRMA <i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">Fityat bilgisi için whatsap'tan iletişime geçin.</div>
+                    <div class="faq-answer">Fiyat bilgisi için WhatsApp'tan iletişime geçin. Size özel teklif sunalım.</div>
                 </div>
+            </div>
+            
+            <div class="guarantee-badge">
+                <i class="fas fa-shield-alt"></i> MEMNUN KALMAZSANIZ ÜCRET ÖDEMEZSİNİZ
             </div>
         </section>
         

@@ -133,6 +133,10 @@
             width: 100%;
             height: 150px;
             overflow: hidden;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
         .thumbnail {
@@ -140,6 +144,13 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.3s ease;
+        }
+        
+        .thumbnail-placeholder {
+            color: #888;
+            font-size: 14px;
+            text-align: center;
+            padding: 20px;
         }
         
         .service-card:active .thumbnail {
@@ -396,6 +407,18 @@
             margin-bottom: 15px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        
+        .slide-placeholder {
+            width: 80%;
+            height: 60%;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 15px;
         }
         
         .slide-description {
@@ -663,19 +686,26 @@
         <section class="services">
             <div class="service-card" onclick="openFullscreenModal(0)">
                 <div class="thumbnail-container">
-                    <img src="fotoğraflar/wp-başlık.jpg" alt="WhatsApp Yapay Zeka" class="thumbnail">
+                    <img src="fotoğraflar/wp-başlık.jpg" alt="WhatsApp Yapay Zeka" class="thumbnail" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="thumbnail-placeholder" style="display: none;">
+                        <i class="fas fa-image" style="font-size: 24px; margin-bottom: 8px;"></i>
+                        <p>Görsel yüklenemedi</p>
+                    </div>
                 </div>
                 <div class="service-info">
                     <h3><i class="fas fa-robot"></i> WhatsApp 7/24 Asistan</h3>
                     <p>WhatsApp üzerinden May emlak asistanımızla 7/24 müşteri etkileşimi sağlayın!</p>
                     <a class="read-more">Detayları Görüntüle</a>
-    
                 </div>
             </div>
             
             <div class="service-card" onclick="openFullscreenModal(1)">
                 <div class="thumbnail-container">
-                    <img src="fotoğraflar/stok-başlık.jpg" alt="Stok Takip Otomasyonu" class="thumbnail">
+                    <img src="fotoğraflar/stok-başlık.jpg" alt="Stok Takip Otomasyonu" class="thumbnail" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="thumbnail-placeholder" style="display: none;">
+                        <i class="fas fa-image" style="font-size: 24px; margin-bottom: 8px;"></i>
+                        <p>Görsel yüklenemedi</p>
+                    </div>
                 </div>
                 <div class="service-info">
                     <h3><i class="fas fa-robot"></i> Stok Takip Otomasyonu</h3>
@@ -686,7 +716,11 @@
 
             <div class="service-card" onclick="openFullscreenModal(2)">
                 <div class="thumbnail-container">
-                    <img src="fotoğraflar/hisse-başlık.png" alt="Hisse Takip Otomasyonu" class="thumbnail">
+                    <img src="fotoğraflar/hisse-başlık.png" alt="Hisse Takip Otomasyonu" class="thumbnail" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="thumbnail-placeholder" style="display: none;">
+                        <i class="fas fa-image" style="font-size: 24px; margin-bottom: 8px;"></i>
+                        <p>Görsel yüklenemedi</p>
+                    </div>
                 </div>
                 <div class="service-info">
                     <h3><i class="fas fa-robot"></i> Hisse Takip Otomasyonu</h3>
@@ -697,7 +731,11 @@
 
             <div class="service-card" onclick="openFullscreenModal(3)">
                 <div class="thumbnail-container">
-                    <img src="fotoğraflar/chatbot-başlık.png" alt="Web Site Chatbot" class="thumbnail">
+                    <img src="fotoğraflar/chatbot-başlık.png" alt="Web Site Chatbot" class="thumbnail" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="thumbnail-placeholder" style="display: none;">
+                        <i class="fas fa-image" style="font-size: 24px; margin-bottom: 8px;"></i>
+                        <p>Görsel yüklenemedi</p>
+                    </div>
                 </div>
                 <div class="service-info">
                     <h3><i class="fas fa-robot"></i> Web Site Chatbot</h3>
@@ -708,7 +746,11 @@
 
             <div class="service-card" onclick="openFullscreenModal(4)">
                 <div class="thumbnail-container">
-                    <img src="WhatsApp Görsel 2025-09-11 saat 16.08.19_efbdb551.jpg" alt="Fatura İşleme Otomasyonu" class="thumbnail">
+                    <img src="WhatsApp Görsel 2025-09-11 saat 16.08.19_efbdb551.jpg" alt="Fatura İşleme Otomasyonu" class="thumbnail" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="thumbnail-placeholder" style="display: none;">
+                        <i class="fas fa-image" style="font-size: 24px; margin-bottom: 8px;"></i>
+                        <p>Görsel yüklenemedi</p>
+                    </div>
                 </div>
                 <div class="service-info">
                     <h3><i class="fas fa-robot"></i> Fatura İşleme Otomasyonu</h3>
@@ -719,44 +761,60 @@
 
             <div class="service-card" onclick="openFullscreenModal(5)">
                 <div class="thumbnail-container">
-                    <img src="" alt="E-posta Etiketleme Otomasyonu" class="thumbnail">
+                    <img src="" alt="E-posta Etiketleme Otomasyonu" class="thumbnail" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="thumbnail-placeholder" style="display: none;">
+                        <i class="fas fa-image" style="font-size: 24px; margin-bottom: 8px;"></i>
+                        <p>Görsel yüklenemedi</p>
+                    </div>
                 </div>
                 <div class="service-info">
-                    <h3><i class="fas fa-robot"></i> Fatura İşleme Otomasyonu</h3>
-                    <p>Faturaları Google Sheets'e işleyen otomasyonla muhasebenizi kolaylaştırın!</p>
+                    <h3><i class="fas fa-robot"></i> E-posta Etiketleme Otomasyonu</h3>
+                    <p>Gelen e-postaları otomatik olarak etiketleyip kategorilere ayırın!</p>
                     <a class="read-more">Detayları Görüntüle</a>
                 </div>
             </div>
 
             <div class="service-card" onclick="openFullscreenModal(6)">
                 <div class="thumbnail-container">
-                    <img src="" alt="Belge Özetleyici " class="thumbnail">
+                    <img src="" alt="Belge Özetleyici" class="thumbnail" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="thumbnail-placeholder" style="display: none;">
+                        <i class="fas fa-image" style="font-size: 24px; margin-bottom: 8px;"></i>
+                        <p>Görsel yüklenemedi</p>
+                    </div>
                 </div>
                 <div class="service-info">
-                    <h3><i class="fas fa-robot"></i> Fatura İşleme Otomasyonu</h3>
-                    <p>Faturaları Google Sheets'e işleyen otomasyonla muhasebenizi kolaylaştırın!</p>
+                    <h3><i class="fas fa-robot"></i> Belge Özetleyici</h3>
+                    <p>Uzun belgeleri otomatik olarak özetleyerek zaman kazanın!</p>
                     <a class="read-more">Detayları Görüntüle</a>
                 </div>
             </div>
 
             <div class="service-card" onclick="openFullscreenModal(7)">
                 <div class="thumbnail-container">
-                    <img src="" alt="Cv Özetleyici" class="thumbnail">
+                    <img src="" alt="CV Özetleyici" class="thumbnail" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="thumbnail-placeholder" style="display: none;">
+                        <i class="fas fa-image" style="font-size: 24px; margin-bottom: 8px;"></i>
+                        <p>Görsel yüklenemedi</p>
+                    </div>
                 </div>
                 <div class="service-info">
-                    <h3><i class="fas fa-robot"></i> Fatura İşleme Otomasyonu</h3>
-                    <p>Faturaları Google Sheets'e işleyen otomasyonla muhasebenizi kolaylaştırın!</p>
+                    <h3><i class="fas fa-robot"></i> CV Özetleyici</h3>
+                    <p>Gelen CV'leri otomatik olarak özetleyip değerlendirin!</p>
                     <a class="read-more">Detayları Görüntüle</a>
                 </div>
             </div>
 
             <div class="service-card" onclick="openFullscreenModal(8)">
                 <div class="thumbnail-container">
-                    <img src="" alt="Gmail Otomasyon Sistemi" class="thumbnail">
+                    <img src="" alt="Gmail Otomasyon Sistemi" class="thumbnail" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="thumbnail-placeholder" style="display: none;">
+                        <i class="fas fa-image" style="font-size: 24px; margin-bottom: 8px;"></i>
+                        <p>Görsel yüklenemedi</p>
+                    </div>
                 </div>
                 <div class="service-info">
-                    <h3><i class="fas fa-robot"></i> Fatura İşleme Otomasyonu</h3>
-                    <p>Faturaları Google Sheets'e işleyen otomasyonla muhasebenizi kolaylaştırın!</p>
+                    <h3><i class="fas fa-robot"></i> Gmail Otomasyon Sistemi</h3>
+                    <p>Gmail üzerinden çeşitli otomasyonlar ile işlerinizi kolaylaştırın!</p>
                     <a class="read-more">Detayları Görüntüle</a>
                 </div>
             </div>
@@ -766,7 +824,7 @@
         <section class="token-calculator">
             <div class="calculator-container">
                 <div class="calculator-image">
-                    <!-- Görüntü eklemek için yer -->
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 24 24'><path fill='%233b82f6' d='M21 7v12q0 .825-.587 1.413T19 21H5q-.825 0-1.413-.587T3 19V5q0-.825.587-1.413T5 3h12l4 4zm-2 .85L16.15 5H5v14h14V7.85zM12 18q1.25 0 2.125-.875T15 15q0-1.25-.875-2.125T12 12q-1.25 0-2.125.875T9 15q0 1.25.875 2.125T12 18zm-6-8h9V8H6v2z'/></svg>" alt="Token Hesaplayıcı">
                 </div>
                 
                 <div class="calculator-content">
@@ -910,7 +968,7 @@
             },
             {
                 name: "Stok Takip Otomasyonu",
-                description: "",
+                description: "Stoklarınızı otomatik olarak takip eden yapay zeka çözümü.",
                 images: [
                     { url: "fotoğraflar/stok-1.jpg", description: "" },
                     { url: "fotoğraflar/stok-2.jpg", description: "" },
@@ -919,7 +977,7 @@
             },
             {
                 name: "Hisse Takip Otomasyonu",
-                description: "",
+                description: "Borsa hisselerini anlık takip eden otomasyon sistemi.",
                 images: [
                     { url: "fotoğraflar/hisse-1.jpg", description: "" },
                     { url: "fotoğraflar/hisse-2.jpg", description: "" },
@@ -929,7 +987,7 @@
             },
             {
                 name: "Web Site Chatbot",
-                description: "",
+                description: "Web siteniz için yapay zeka destekli chatbot çözümü.",
                 images: [
                     { url: "fotoğraflar/chatbot-1.jpg", description: "" },
                     { url: "fotoğraflar/chatbot-2.jpg", description: "" }
@@ -937,15 +995,15 @@
             },
             {
                 name: "Fatura İşleme Otomasyonu",
-                description: "",
+                description: "Faturaları otomatik olarak işleyen yapay zeka çözümü.",
                 images: [
                     { url: "fotoğraflar/fatura-1.jpg", description: "" },
                     { url: "WhatsApp Görsel 2025-09-13 saat 13.18.23_f707fe11.jpg", description: "" }
                 ]
-                },
+            },
             {
                 name: "E-posta Etiketleme Otomasyonu",
-                description: "",
+                description: "E-postaları otomatik olarak etiketleyen yapay zeka çözümü.",
                 images: [
                     { url: "WhatsApp Görsel 2025-09-12 saat 16.31.29_caf23c78.jpg", description: "" },
                     { url: "fotoğraflar/WhatsApp Görsel 2025-09-12 saat 16.39.24_f287f5a0.jpg", description: "" },
@@ -953,23 +1011,26 @@
                     { url: "fotoğraflar/WhatsApp Görsel 2025-09-12 saat 16.38.24_a87454e9.jpg", description: "" },
                     { url: "fotoğraflar/WhatsApp Görsel 2025-09-12 saat 16.32.42_096dcbad.jpg", description: "" }
                 ]
-                 {
-               name: "Belge Özetleyici",
-                description: "",
+            },
+            {
+                name: "Belge Özetleyici",
+                description: "Uzun belgeleri otomatik olarak özetleyen yapay zeka çözümü.",
                 images: [
                     { url: "fotoğraflar/WhatsApp Görsel 2025-09-13 saat 22.22.33_13032616.jpg", description: "" },
                     { url: "fotoğraflar/WhatsApp Görsel 2025-09-13 saat 22.23.04_bb08841e.jpg", description: "" }
                 ]
-             {
-                name: "Cv Özetleyici",
-                description: "Mail üzerinden gelen cv'leri özetler",
+            },
+            {
+                name: "CV Özetleyici",
+                description: "CV'leri otomatik olarak özetleyen yapay zeka çözümü.",
                 images: [
                     { url: "fotoğraflar/WhatsApp Görsel 2025-09-13 saat 22.41.23_df57848f.jpg", description: "" },
                     { url: "fotoğraflar/WhatsApp Görsel 2025-09-14 saat 16.10.23_98993ab8.jpg", description: "" }
                 ]
-                   {
+            },
+            {
                 name: "Gmail Otomasyon Sistemi",
-                description: "",
+                description: "Gmail üzerinde çeşitli otomasyonlar sağlayan yapay zeka çözümü.",
                 images: [
                     { url: "fotoğraflar/WhatsApp Görsel 2025-09-14 saat 16.12.05_78532bdd.jpg", description: "" },
                     { url: "fotoğraflar/WhatsApp Görsel 2025-09-14 saat 16.12.05_93ec5357.jpg", description: "" },
@@ -977,8 +1038,6 @@
                     { url: "fotoğraflar/WhatsApp Görsel 2025-09-14 saat 16.12.06_6e3f2ce8.jpg", description: "" },
                     { url: "fotoğraflar/WhatsApp Görsel 2025-09-14 saat 16.12.06_fad932fe.jpg", description: "" }
                 ]
-            
-                },
             }
         ];
         
@@ -1009,15 +1068,33 @@
         function updateFullscreenModal() {
             const service = services[currentServiceIndex];
             slidesContainer.innerHTML = '';
+            
             service.images.forEach((imageData, index) => {
                 const slide = document.createElement('div');
                 slide.className = 'slide';
-                slide.innerHTML = `
-                    <img src="${imageData.url}" alt="${service.name} Görsel ${index + 1}">
-                    <div class="slide-description">${imageData.description}</div>
-                `;
+                
+                if (imageData.url && imageData.url.trim() !== '') {
+                    slide.innerHTML = `
+                        <img src="${imageData.url}" alt="${service.name} Görsel ${index + 1}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="slide-placeholder" style="display: none;">
+                            <i class="fas fa-image" style="font-size: 48px; margin-bottom: 16px;"></i>
+                            <p>Görsel yüklenemedi</p>
+                        </div>
+                        <div class="slide-description">${imageData.description}</div>
+                    `;
+                } else {
+                    slide.innerHTML = `
+                        <div class="slide-placeholder">
+                            <i class="fas fa-image" style="font-size: 48px; margin-bottom: 16px;"></i>
+                            <p>Görsel bulunamadı</p>
+                        </div>
+                        <div class="slide-description">${imageData.description}</div>
+                    `;
+                }
+                
                 slidesContainer.appendChild(slide);
             });
+            
             currentIndexElement.textContent = currentImageIndex + 1;
             totalImagesElement.textContent = service.images.length;
             scrollToCurrentImage();

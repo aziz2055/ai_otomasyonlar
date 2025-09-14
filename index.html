@@ -131,18 +131,21 @@
         .thumbnail-container {
             position: relative;
             width: 100%;
-            height: 180px; /* Yükseklik biraz artırıldı */
+            padding-top: 56.25%; /* 16:9 aspect ratio için, resmin orijinal oranına göre ayarlayabilirsiniz */
             overflow: hidden;
-            background: linear-gradient(45deg, #f0f0f0, #e0e0e0); /* Daha hoş bir gradient arkaplan */
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
             display: flex;
             justify-content: center;
             align-items: center;
         }
         
         .thumbnail {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Görsellerin konteynere tam sığmasını sağlar */
+            object-fit: contain; /* Resimleri kırpmadan tam sığdırır, letterboxing yapabilir */
             transition: transform 0.3s ease;
         }
         
@@ -157,6 +160,9 @@
             justify-content: center;
             width: 100%;
             height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
         
         .service-card:active .thumbnail {
